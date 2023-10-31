@@ -1,11 +1,11 @@
 import dotenv from 'dotenv';
 
-dotenv.config({path: 'src/.env'});
+dotenv.config();
 
 export const sqlConfig = {
-  user: 'sa',
-  password: 'Dante99.',
-  database: 'Employee_management',
+  user: process.env.DB_USER as string,
+  password: process.env.DB_PWD as string,
+  database: process.env.DB_NAME as string,
   server: 'localhost',
   pool: {
     max: 10,
