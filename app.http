@@ -1,0 +1,32 @@
+POST http://localhost:4400/employee/register
+Content-Type: application/json
+
+{
+    "name": "Jane Doe",
+    "email": "jane@yopmail.com",
+    "phone_no": "0787556587",
+    "id_no": 42347563,
+    "KRA_PIN": "AD8968XKY3",
+    "NHIF_NO": "868084J43",
+    "NSSF_NO": "G687t9DS",
+    "password": "10345678"
+}
+
+
+### login 
+POST http://localhost:4400/employee/login
+Content-Type: application/json
+
+{
+    "email": "jane@yopmail.com",
+    "password": "10345678"
+}
+
+### fetching employees
+GET http://localhost:4400/employee/
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6IjBhZGJiM2I1LWRlYWQtNDQ4Zi05Y2ExLTQ0ZjkzZDBlNTUyNyIsIm5hbWUiOiJKYW5lIERvZSIsImVtYWlsIjoiamFuZUB5b3BtYWlsLmNvbSIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTY5ODc0ODAwNiwiZXhwIjoxNjk4NzUxNjA2fQ.3JhyDZ4IBYU20ztcl_kPm5VF-gi8e7AEXXWZXvfYvHo
+
+
+### checking user details
+GET http://localhost:4400/employee/check_user_details
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6IjBhZGJiM2I1LWRlYWQtNDQ4Zi05Y2ExLTQ0ZjkzZDBlNTUyNyIsIm5hbWUiOiJKYW5lIERvZSIsImVtYWlsIjoiamFuZUB5b3BtYWlsLmNvbSIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTY5ODc0ODAwNiwiZXhwIjoxNjk4NzUxNjA2fQ.3JhyDZ4IBYU20ztcl_kPm5VF-gi8e7AEXXWZXvfYvHo
