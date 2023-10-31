@@ -2,14 +2,14 @@ POST http://localhost:4400/employee/register
 Content-Type: application/json
 
 {
-    "name": "Mercy Wambui",
-    "email": "mercy.wambui@thejitu.com",
-    "phone_no": "0747556522",
-    "id_no": 12322563,
-    "KRA_PIN": "AD88983XKY3",
-    "NHIF_NO": "3488784J43",
-    "NSSF_NO": "G54557t9DS",
-    "password": "10345678"
+    "name": "Daniel Kitheka",
+    "email": "dankinyi99@gmail.com",
+    "phone_no": "0767876562",
+    "id_no": 633784563,
+    "KRA_PIN": "ADjCC32XXY3",
+    "NHIF_NO": "119z0784J43",
+    "NSSF_NO": "kdhu787n9DS",
+    "password": "12345678"
 }
 
 
