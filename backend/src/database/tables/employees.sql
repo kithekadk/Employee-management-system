@@ -15,3 +15,7 @@ CREATE TABLE Employees (
 -- DROP TABLE Employees
 
 -- SELECT * FROM Employees
+
+SELECT * FROM EMPLOYEES WHERE EMAIL ='dankinyi99@gmail.com' 
+
+UPDATE Employees SET role = 'admin' WHERE email = 'dankinyi99@gmail.com'

@@ -1,8 +1,10 @@
 import express, { NextFunction, Request, Response, json } from 'express'
+import cors from 'cors'
 import employee_router from './routes/employeeRoutes'
 
 const app = express()
 
+app.use(cors())
 app.use(json())
 
 app.use('/employee', employee_router)
