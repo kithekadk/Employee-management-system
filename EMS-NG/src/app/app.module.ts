@@ -9,6 +9,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ParentComponent } from './component-communication/parent/parent.component';
 import { ChildComponent } from './component-communication/child/child.component';
 import { FormsModule } from '@angular/forms';
+import { Renderer2Component } from './lessons/renderer2/renderer2.component';
+import { HostlistenerComponent } from './lessons/hostlistener/hostlistener.component';
+import { HostbinderDirective } from './lessons/hostbinder.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     NavbarComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    Renderer2Component,
+    HostlistenerComponent,
+    HostbinderDirective
   ],
   imports: [
     BrowserModule,
