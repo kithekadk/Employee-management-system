@@ -1,0 +1,21 @@
+<div class="card p-4 bg-blue-300">
+    <h1>{{heading}}</h1>
+    <p>{{body}}</p>
+
+    <!-- Event binding -->
+    <button (click)="onClick()" class="bg-blue-700 px-4 py-2 text-white rounded shadow-2xl mr-[20px]">Click me</button>
+    <button (mouseover)="doSomething()" class="bg-blue-700 px-4 py-2 text-white rounded shadow-2xl">Hover on me</button>
+
+    <!-- Component communication -->
+    <p>{{paragraph1}}</p>
+    <p>{{paragraph2}}</p> 
+    <h1>{{somevalue}}</h1><br>
+
+
+    <input type="text" placeholder="Input your name" [(ngModel)] = "name">
+    <p>{{name}}</p> <br>
+
+    <input type="text" #animal placeholder="Input your pet"><br> <br>
+    <button (click)="popName(animal.value)" class="bg-blue-700 px-4 py-2 text-white rounded shadow-2xl mr-[20px]">Submit</button>
+
+</div>
