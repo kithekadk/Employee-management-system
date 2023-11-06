@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+
+<div class="main flex w-[100vw]  bg-blue-200 h-[93vh]">
+    <div class="sidebar w-[10vw] h-[90vh] flex flex-col justify-center ml-[0.5vw]">
+        <div class="logo flex justify-center font-bold text-[40px]">
+            EMS
+        </div>
+
+        <div class="flex flex-col gap-2" *ngFor="let option of sidebar">
+            <button class="bg-blue-500 p-2 rounded text-white mb-2">{{option.value | lowercase}}</button>
+            <!-- <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[0].value}}</button>
+            <button class="bg-blue-500 p-2 rounded text-white">{{value.value}}</button> -->
+        </div>
+    </div>
+
+    <div class="ml-[0.5vw] my-[20px]  p-[25px] w-[88vw] bg-white rounded-2xl">
+        <div class="flex justify-between">
+            <div> 
+                <h1><b>Attendance</b> &nbsp; Month - November</h1>
+            </div>
+            <div class="flex gap-4">
+                <div>
+                    <label for="">Year</label> &nbsp;
+                    <select name="" id="" class="py-[5px] px-4 bg-gray-100 rounded-2xl">
+                        <option value="">2023</option>
+                        <option value="">2022</option>
+                        <option value="">2021</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="">Month</label> &nbsp;
+                    <select name="" id="" class="py-[5px] px-4 bg-gray-100 rounded-2xl">
+                        <option value="">November</option>
+                        <option value="">October</option>
+                        <option value="">September</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cards flex gap-2">
+            <div class="card w-[180px] bg-gray-100 p-[15px] flex flex-col items-center rounded-2xl hover:bg-blue-200 " *ngFor="let employee of employees">
+                <img src="{{employee.image}}" alt="" width="50px" >
+                <p class="text-blue-500 font-bold ">{{employee.name.firstname}} {{employee.name.lastname}}</p>
+                <p>{{employee.role | sentenceCase}}</p>
+                <button class="border-solid border-blue-500 border-[2px] py-[2px] px-4 rounded-2xl text-blue-500 mt-[5px] hover:cursor-pointer" >Profile Details</button>
+            </div>
+        </div>
+    </div>
+</div>
+

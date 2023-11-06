@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { Renderer2Component } from './lessons/renderer2/renderer2.component';
 import { HostlistenerComponent } from './lessons/hostlistener/hostlistener.component';
 import { HostbinderDirective } from './lessons/hostbinder.directive';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { SentenceCasePipe } from './pipes/sentence-case.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { HostbinderDirective } from './lessons/hostbinder.directive';
     ChildComponent,
     Renderer2Component,
     HostlistenerComponent,
-    HostbinderDirective
+    HostbinderDirective,
+    AdminDashboardComponent,
+    SentenceCasePipe
   ],
   imports: [
     BrowserModule,

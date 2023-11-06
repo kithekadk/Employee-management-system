@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   loggedIn:boolean = false
+
+  date = new Date()
 }
