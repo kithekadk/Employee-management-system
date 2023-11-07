@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { user } from '../interfaces/user';
+import { EmployeesService } from '../services/employees.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,6 +8,13 @@ import { user } from '../interfaces/user';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
+
+  constructor(private employeesService: EmployeesService){}
+
+  fetchEmployees(){
+    this.employeesService.getEmployees()
+  }
+
   sidebar = [
     {
       value: 'Employee'

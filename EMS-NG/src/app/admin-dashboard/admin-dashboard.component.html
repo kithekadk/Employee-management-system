@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<div class="main flex w-[100vw]  bg-blue-200 h-[93vh]">
+<div class="main flex w-[100vw]  bg-blue-200 h-[93.5vh]">
     <div class="sidebar w-[10vw] h-[90vh] flex flex-col justify-center ml-[0.5vw]">
         <div class="logo flex justify-center font-bold text-[40px]">
             EMS
@@ -11,6 +11,7 @@
             <!-- <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[0].value}}</button>
             <button class="bg-blue-500 p-2 rounded text-white">{{value.value}}</button> -->
         </div>
+        <button (click)="fetchEmployees()">Users</button>
     </div>
 
     <div class="ml-[0.5vw] my-[20px]  p-[25px] w-[88vw] bg-white rounded-2xl">
