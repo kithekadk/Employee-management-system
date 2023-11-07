@@ -10,7 +10,7 @@ import { ExtendedEmployee } from '../middleware/verifyToken'
 import Connection from '../dbhelpers/dbhelpers'
 
 const dbhelper = new Connection
-
+ 
 export const registerEmployee = async(req:Request, res: Response) =>{
     try {
         let {name, email, phone_no, id_no, KRA_PIN, NHIF_NO, NSSF_NO, password} = req.body
@@ -62,7 +62,7 @@ export const loginEmployee = async(req:Request, res: Response) =>{
 
             if(!CorrectPwd){
                 return res.status(401).json({
-                    message: "Incorrect password"
+                    error: "Incorrect password"
                 })
             }
 
@@ -77,7 +77,7 @@ export const loginEmployee = async(req:Request, res: Response) =>{
             // dotenv.config()
             const token = jwt.sign(LoginCredentials[0], process.env.SECRET as string, {
                 expiresIn: '3600s'
-            })
+            }) 
 
             return res.status(200).json({
                 message: "Logged in successfully", token
@@ -85,7 +85,7 @@ export const loginEmployee = async(req:Request, res: Response) =>{
             
         }else{
             return res.json({
-                message: "Email not found"
+                error: "Email not found"
             })
         }
 
