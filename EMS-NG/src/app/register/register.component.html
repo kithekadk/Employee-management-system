@@ -1,1 +1,50 @@
 <app-navbar></app-navbar>
+<div class="register-employee flex justify-center">
+    <form [formGroup]="registrationForm" (ngSubmit)="createEmployee()" class="w-[30vw] shadow-2xl p-2">
+        <h1 class="flex justify-center font-bold my-8">Input Registration Details</h1>
+        <div class="flex flex-col mb-2">
+            <label for="" class="mb-[5px]">Fullname </label>
+            <input type="text" formControlName="name" placeholder="Enter your fullname" class="py-[5px] px-[10px] border-solid border-[1px] border-grey-300">
+            <div *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched" class="text-red-500">Name is required</div>
+        </div>
+        <div class="flex flex-col mb-2">
+            <label for="" class="mb-[5px]">Email </label>
+            <input type="email" formControlName="email" placeholder="Enter your email" class="py-[5px] px-[10px] border-solid border-[1px] border-grey-300">
+            <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" class="text-red-500">Email is required</div>
+        </div>
+        <div class="flex flex-col mb-2">
+            <label for="" class="mb-[5px]">Phone number </label>
+            <input type="number" formControlName="phone_no" placeholder="Enter your phone number" class="py-[5px] px-[10px] border-solid border-[1px] border-grey-300">
+            <div *ngIf="registrationForm.get('phone_no')?.invalid && registrationForm.get('phone_no')?.touched" class="text-red-500">Phone number is required</div>
+        </div>
+        <div class="flex flex-col mb-2">
+            <label for="" class="mb-[5px]">Id number </label>
+            <input type="number" formControlName="id_no" placeholder="Enter your ID number" class="py-[5px] px-[10px] border-solid border-[1px] border-grey-300">
+            <div *ngIf="registrationForm.get('id_no')?.invalid && registrationForm.get('id_no')?.touched" class="text-red-500">ID number is required</div>
+            <div *ngIf="registrationForm.get('id_no')?.errors && registrationForm.get('id_no')?.touched" class="text-red-500">ID number is required</div>
+        </div>
+        <div class="flex flex-col mb-2">
+            <label for="" class="mb-[5px]">KRA PIN </label>
+            <input type="text" formControlName="KRA_PIN" placeholder="Enter your KRA PIN" class="py-[5px] px-[10px] border-solid border-[1px] border-grey-300">
+            <div *ngIf="registrationForm.get('KRA_PIN')?.invalid && registrationForm.get('KRA_PIN')?.touched" class="text-red-500">KRA PIN is required</div>
+        </div>
+        <div class="flex flex-col mb-2">
+            <label for="" class="mb-[5px]">NHIF Number </label>
+            <input type="text" formControlName="NHIF_NO" placeholder="Enter your NHIF Number" class="py-[5px] px-[10px] border-solid border-[1px] border-grey-300">
+            <div *ngIf="registrationForm.get('NHIF_NO')?.invalid && registrationForm.get('NHIF_NO')?.touched" class="text-red-500">NHIF Number is required</div>
+        </div>
+        <div class="flex flex-col mb-2">
+            <label for="" class="mb-[5px]">NSSF Number </label>
+            <input type="text" formControlName="NSSF_NO" placeholder="Enter your NSSF Number" class="py-[5px] px-[10px] border-solid border-[1px] border-grey-300">
+            <div *ngIf="registrationForm.get('NSSF_NO')?.invalid && registrationForm.get('NSSF_NO')?.touched" class="text-red-500">NSSF Number is required</div>
+        </div>
+        <div class="flex flex-col mb-2">
+            <label for="" class="mb-[5px]">Password </label>
+            <input type="password" formControlName="password" placeholder="Enter your password" class="py-[5px] px-[10px] border-solid border-[1px] border-grey-300">
+            <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched" class="text-red-500">Password is required</div>
+        </div>
+        <div class="flex flex-col mb-2">
+            <input type="submit" value="Register" class="py-[5px] px-[10px] bg-blue-500 hover:bg-blue-600 text-white cursor-pointer">
+        </div>
+    </form>
+</div>
