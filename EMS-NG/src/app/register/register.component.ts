@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { EmployeeDetails } from '../interfaces/employee';
 
 @Component({
   selector: 'app-register',
@@ -36,6 +37,9 @@ export class RegisterComponent {
 
   createEmployee(){
     console.log(this.registrationForm);
-    // this.authService.registerEmployee(this.registrationForm.value)
+
+    let details: EmployeeDetails = this.registrationForm.value
+    
+    this.authService.registerEmployee(details)
   }
 }

@@ -7,7 +7,7 @@
         <!-- <h1 class="w-[40vw] text-center font-bold text-[20px] mb-8" >{{title}}</h1> -->
         <div class="flex justify-center"><img src="{{link}}" alt=""></div><br>
         <div *ngIf="loggingIn" class="flex justify-center p-4 bg-red-200 text-red-500 rounded mb-2">{{errorMessage}}</div>
-        <div *ngIf="loggedIn" class="flex justify-center p-4 bg-green-200 text-green-500 rounded mb-2">{{successMessage}}</div>
+        <div *ngIf="loggedInState" class="flex justify-center p-4 bg-green-200 text-green-500 rounded mb-2">{{successMessage}}</div>
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
           Email address

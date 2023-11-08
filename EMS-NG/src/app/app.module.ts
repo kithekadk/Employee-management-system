@@ -14,6 +14,8 @@ import { HostlistenerComponent } from './lessons/hostlistener/hostlistener.compo
 import { HostbinderDirective } from './lessons/hostbinder.directive';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SentenceCasePipe } from './pipes/sentence-case.pipe';
+import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+import { SingleEmployeeComponent } from './single-employee/single-employee.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { SentenceCasePipe } from './pipes/sentence-case.pipe';
     HostlistenerComponent,
     HostbinderDirective,
     AdminDashboardComponent,
-    SentenceCasePipe
+    SentenceCasePipe,
+    EmployeeDashboardComponent,
+    SingleEmployeeComponent
   ],
   imports: [
     BrowserModule,
