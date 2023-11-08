@@ -22,6 +22,9 @@ export class AuthService {
     let token = data.token
     localStorage.setItem('token', token)
 
+    console.log(token);
+    
+
     return data
   }
 

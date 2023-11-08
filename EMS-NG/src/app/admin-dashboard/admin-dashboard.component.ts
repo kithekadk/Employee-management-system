@@ -3,6 +3,7 @@ import { user } from '../interfaces/user';
 import { EmployeesService } from '../services/employees.service';
 import { Employee } from '../interfaces/employee';
 import { Router } from '@angular/router';
+import { APIService } from '../services/api.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -10,11 +11,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
-  employees:Employee[] = []
+  employees:any 
+
+  allEmployees:Employee[]=[]
 
 
-  constructor(private employeesService: EmployeesService, private router: Router){
-    this.fetchEmployees()
+  constructor(private employeesService: EmployeesService, private router: Router, private apiService:APIService){
+    // this.fetchEmployees()
+
+    this.getEmployees()
+  }
+
+  getEmployees(){
+    let data = this.apiService.getEmployees().subscribe(res=>{
+
+      this.employees = res
+
+      // console.log(this.employees.employees);
+
+      let employees = this.employees.employees
+      
+
+      this.allEmployees = employees
+
+      // console.log(this.allEmployees);
+      
+      
+    })
+
+    
+    
   }
 
   async fetchEmployees(){

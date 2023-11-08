@@ -16,6 +16,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { SentenceCasePipe } from './pipes/sentence-case.pipe';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 import { SingleEmployeeComponent } from './single-employee/single-employee.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -31,13 +33,15 @@ import { SingleEmployeeComponent } from './single-employee/single-employee.compo
     AdminDashboardComponent,
     SentenceCasePipe,
     EmployeeDashboardComponent,
-    SingleEmployeeComponent
+    SingleEmployeeComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

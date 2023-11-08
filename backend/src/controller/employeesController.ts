@@ -114,14 +114,34 @@ export const getAllEmployees = async(req:Request, res:Response)=>{
         })
     }
 }
+export const getOneEmployees = async(req:Request, res:Response)=>{
+    try {
+
+        let id = req.params.id 
+
+        const pool = await mssql.connect(sqlConfig)
+
+        let employee = (await pool.request().input('employee_id',id).execute('fetchOneEmployee')).recordset
+        // let employees = (await pool.request().query('SELECT * FROM Employees')).recordset
+
+        return res.status(200).json({
+            employee: employee
+        })
+        
+    } catch (error) {
+        return res.json({
+            error: error
+        })
+    }
+}
 
 export const checkUserDetails = async (req:ExtendedEmployee, res:Response)=>{
     
     if(req.info){
 
-
         return res.json({
-            info: req.info
+            info: req.info 
         })
     }
+    
 }

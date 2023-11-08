@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 import { SingleEmployeeComponent } from './single-employee/single-employee.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
   // {path: '', pathMatch: 'full', redirectTo: ''},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'admin', component: AdminDashboardComponent},
   {path: 'employee', component: EmployeeDashboardComponent},
-  {path: 'admin/:employee_id', component: SingleEmployeeComponent}
+  {path: 'admin/:employee_id', component: SingleEmployeeComponent},
+  {path: '**', component: NotfoundComponent }
 ];
 
 @NgModule({

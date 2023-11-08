@@ -18,16 +18,21 @@ POST http://localhost:4400/employee/login
 Content-Type: application/json
 
 {
-    "email": "dankinyi99@gmail.com",
+    "email": "dan@yopmail.com",
     "password": "12345678"
 }
 
 ### fetching employees
 GET http://localhost:4400/employee
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRhOTNhYjkwLThjMjMtNDIyNS1iOTBjLWJmMDE0NTAyYzhkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFua2lueWk5OUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTkzNDk5ODksImV4cCI6MTY5OTM1MzU4OX0.tP4h03fdVUNxFeIJ0xFm4KJhWX012Ci-9rxK-oyn7mI
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaWF0IjoxNjk5NDM3NTY1LCJleHAiOjE2OTk0NDExNjV9.2-FK-BOh1TLzkHHTxX3eF3XLMV79ta1-LUNtoIaFB8E
 
+
+### fetching one employee
+GET http://localhost:4400/employee/0adbb3b5-dead-448f-9ca1-44f93d0e5527
+Content-Type: application/json
 
 ### checking user details
 GET http://localhost:4400/employee/check_user_details
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6IjBhZGJiM2I1LWRlYWQtNDQ4Zi05Y2ExLTQ0ZjkzZDBlNTUyNyIsIm5hbWUiOiJKYW5lIERvZSIsImVtYWlsIjoiamFuZUB5b3BtYWlsLmNvbSIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTY5ODgyNjA3NywiZXhwIjoxNjk4ODI5Njc3fQ.SWJpmBD3z6n4cyeBupF5kGmuZwGGptMB3ragM_rN1rI
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaWF0IjoxNjk5NDM3NTY1LCJleHAiOjE2OTk0NDExNjV9.2-FK-BOh1TLzkHHTxX3eF3XLMV79ta1-LUNtoIaFB8E

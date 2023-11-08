@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { EmployeeDetails } from '../interfaces/employee';
+import { APIService } from '../services/api.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { EmployeeDetails } from '../interfaces/employee';
 export class RegisterComponent {
   registrationForm!: FormGroup
 
-  constructor(private authService: AuthService, private fb:FormBuilder){
+  constructor(private authService: AuthService, private fb:FormBuilder, private apiService: APIService){
     // this.registrationForm = new FormGroup({
     //   name: new FormControl('', Validators.required),
     //   email: new FormControl('', [Validators.required, Validators.email]),
@@ -27,7 +28,7 @@ export class RegisterComponent {
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       phone_no: ['', [Validators.required]],
-      id_no: [[Validators.required, Validators.min(8)]],
+      id_no: [[Validators.required]],
       KRA_PIN: ['', [Validators.required]],
       NHIF_NO: ['', [Validators.required]],
       NSSF_NO: ['', [Validators.required]],
@@ -36,10 +37,11 @@ export class RegisterComponent {
   }
 
   createEmployee(){
-    console.log(this.registrationForm);
+    console.log(this.registrationForm.value);
 
     let details: EmployeeDetails = this.registrationForm.value
     
-    this.authService.registerEmployee(details)
+    // this.authService.registerEmployee(details)
+    this.apiService.createEmployee(details)
   }
 }
