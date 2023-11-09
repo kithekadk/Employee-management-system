@@ -41,10 +41,12 @@ export class EmployeesService {
   }
 
   async getOneEmployee(employee_id: string){
+    let token = localStorage.getItem('token') as string
 
     let res = await fetch(`http://localhost:4400/employee/${employee_id}`,{
       headers:{
-        "Content-type": "application/json"
+        "Content-type": "application/json",
+        "token": token
       }
     })
 

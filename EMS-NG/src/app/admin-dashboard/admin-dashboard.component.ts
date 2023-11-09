@@ -38,9 +38,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   ]
 })
 export class AdminDashboardComponent {
-  employees:any 
-
-  allEmployees:Employee[]=[]
+  employees:Employee[] = []
 
 
   constructor(private employeesService: EmployeesService, private router: Router, private apiService:APIService){
@@ -52,18 +50,15 @@ export class AdminDashboardComponent {
   getEmployees(){
     let data = this.apiService.getEmployees().subscribe(res=>{
 
-      this.employees = res
+      console.log(res.employees);     
+
 
       // console.log(this.employees.employees);
 
-      let employees = this.employees.employees
-      
-
-      this.allEmployees = employees
+      this.employees = res.employees
 
       // console.log(this.allEmployees);
-      
-      
+
     })
 
     
@@ -83,7 +78,7 @@ export class AdminDashboardComponent {
     console.log(index);
     let emp = this.employees[index]
 
-    console.log(emp);
+    console.log(emp.employee_id);
     
     this.router.navigate(['admin', emp.employee_id])
 

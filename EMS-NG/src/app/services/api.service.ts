@@ -13,7 +13,7 @@ export class APIService {
 
   getEmployees(){
     let token = localStorage.getItem('token') as string
-    return this.http.get('http://localhost:4400/employee', {
+    return this.http.get<{employees: Employee[]}>('http://localhost:4400/employee', {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
         'token': token
