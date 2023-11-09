@@ -4,11 +4,38 @@ import { EmployeesService } from '../services/employees.service';
 import { Employee } from '../interfaces/employee';
 import { Router } from '@angular/router';
 import { APIService } from '../services/api.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.css']
+  styleUrls: ['./admin-dashboard.component.css'],
+  animations:[
+    trigger('fadeIn',[
+      transition('void => *', [
+        style({
+          backgroundColor: 'white', opacity: 0, padding: '30px'
+        }),
+        animate(2000, style({backgroundColor: 'lightgreen', opacity: 1, padding: '15px'}))
+      ])
+    ]),
+    trigger('sleep', [
+      transition(':enter, :leave', [
+        style({
+          backgroundColor: 'black'
+        }),
+        animate(3000, style({
+          backgroundColor: 'gray'
+        }))
+      ])
+    ]),
+    trigger ('backIn', [
+      state('void', style({opacity: 0, marginTop: '-50px'})),
+      transition('void <=> *', [
+        animate(1000)
+      ])
+    ])
+  ]
 })
 export class AdminDashboardComponent {
   employees:any 

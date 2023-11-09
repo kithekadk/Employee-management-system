@@ -4,7 +4,7 @@
 
 <div class="w-[100vw] flex justify-center">
     <form id="login-form" class=" w-[40vw] bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" #loginform="ngForm" (ngSubmit)="authenticateUser(loginform.value)">
-        <!-- <h1 class="w-[40vw] text-center font-bold text-[20px] mb-8" >{{title}}</h1> -->
+        <h1 class="w-[40vw] text-center font-bold text-[20px] mb-8">{{title}}</h1>
         <div class="flex justify-center"><img src="{{link}}" alt=""></div><br>
         <div *ngIf="loggingIn" class="flex justify-center p-4 bg-red-200 text-red-500 rounded mb-2">{{errorMessage}}</div>
         <div *ngIf="loggedInState" class="flex justify-center p-4 bg-green-200 text-green-500 rounded mb-2">{{successMessage}}</div>

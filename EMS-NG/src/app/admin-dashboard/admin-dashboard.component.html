@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <div class="main flex w-[100vw]  bg-blue-200 h-[93.5vh]">
-    <div class="sidebar w-[10vw] h-[90vh] flex flex-col justify-center ml-[0.5vw]">
+    <div @backIn class="sidebar w-[10vw] h-[90vh] flex flex-col justify-center ml-[0.5vw]">
         <div class="logo flex justify-center font-bold text-[40px]">
             EMS
         </div>
@@ -39,8 +39,8 @@
             </div>
         </div>
         
-        <div class="cards flex gap-2 flex-wrap">
-            <div class="mt-2 card w-[200px] bg-gray-100 p-[15px] flex flex-col items-center rounded-2xl hover:bg-blue-200 " *ngFor="let employee of allEmployees; let i = index">
+        <div @sleep class="cards flex gap-2 flex-wrap">
+            <div @fadeIn class="mt-2 card w-[200px] bg-gray-100 p-[15px] flex flex-col items-center rounded-2xl hover:bg-blue-200 " *ngFor="let employee of allEmployees; let i = index">
                 <!-- <img src="{{employee.image}}" alt="" width="50px" >-->
                 <p class="text-blue-500 font-bold ">{{employee.name}}</p> 
                 <p>{{employee.role | sentenceCase}}</p>
