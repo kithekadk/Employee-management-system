@@ -12,3 +12,6 @@ AS
 BEGIN
     SELECT * FROM Employees WHERE employee_id = @employee_id
 END
+
+
+-- SELECT * FROM Employees WHERE email = 'dan@yopmail.com'

@@ -3,12 +3,12 @@ Content-Type: application/json
 
 {
     "name": "Daniel Kitheka",
-    "email": "dan@yopmail.com",
-    "phone_no": "0754876562",
-    "id_no": 363784563,
-    "KRA_PIN": "ADjCC22XXY3",
-    "NHIF_NO": "1170784J43",
-    "NSSF_NO": "ksdhu7879DS",
+    "email": "daniel01@yopmail.com",
+    "phone_no": "0754876564",
+    "id_no": "36374563",
+    "KRA_PIN": "ADjC392XXY3",
+    "NHIF_NO": "NHIF784J43",
+    "NSSF_NO": "NSSF7879DS",
     "password": "12345678"
 }
 

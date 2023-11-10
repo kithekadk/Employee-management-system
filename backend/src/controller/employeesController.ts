@@ -8,12 +8,46 @@ import jwt from 'jsonwebtoken'
 import { LoginEmployee } from '../interfaces/employee'
 import { ExtendedEmployee } from '../middleware/verifyToken'
 import Connection from '../dbhelpers/dbhelpers'
+import { registerUserSchema } from '../validators/validators'
+import { isEmpty } from 'lodash'
 
 const dbhelper = new Connection
  
 export const registerEmployee = async(req:Request, res: Response) =>{
     try {
         let {name, email, phone_no, id_no, KRA_PIN, NHIF_NO, NSSF_NO, password} = req.body
+
+        let {error} = registerUserSchema.validate(req.body)
+
+        if(error){
+            return res.status(404).json({error: error.details})
+        }
+
+        const emailTaken = (await dbhelper.query(`SELECT * FROM Employees WHERE email = '${email}'`)).recordset
+        const phonenoTaken = (await dbhelper.query(`SELECT * FROM Employees WHERE phone_no = '${phone_no}'`)).recordset
+        const id_no_Taken = (await dbhelper.query(`SELECT * FROM Employees WHERE id_no = '${id_no}'`)).recordset
+        const KRA_PIN_Taken = (await dbhelper.query(`SELECT * FROM Employees WHERE KRA_PIN = '${KRA_PIN}'`)).recordset
+        const NHIF_NO_Taken = (await dbhelper.query(`SELECT * FROM Employees WHERE NHIF_NO = '${NHIF_NO}'`)).recordset
+        const NSSF_NO_Taken = (await dbhelper.query(`SELECT * FROM Employees WHERE NSSF_NO = '${NSSF_NO}'`)).recordset
+
+        if(!isEmpty(emailTaken)){
+            return res.json({error: "This email is already in use"})
+        }
+        if(!isEmpty(phonenoTaken)){
+            return res.json({error: "This phone number is taken"})
+        }
+        if(!isEmpty(id_no_Taken)){
+            return res.json({error: "This ID number is taken"})
+        }
+        if(!isEmpty(KRA_PIN_Taken)){
+            return res.json({error: "This KRA PIN is taken"})
+        }
+        if(!isEmpty(NHIF_NO_Taken)){
+            return res.json({error: "This NHIF Number is taken"})
+        }
+        if(!isEmpty(NSSF_NO_Taken)){
+            return res.json({error: "This NSSF Number is taken"})
+        }
 
         let employee_id = v4()
 
@@ -37,6 +71,7 @@ export const registerEmployee = async(req:Request, res: Response) =>{
             employee_id, name, email, phone_no, id_no, KRA_PIN, NHIF_NO, NSSF_NO, password: hashedPwd
         })
         
+        console.log(result);
 
         return res.status(200).json({
             message: 'Employee registered successfully'
