@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
-import { SingleEmployeeComponent } from './single-employee/single-employee.component';
-import { NotfoundComponent } from './notfound/notfound.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
+import { SingleEmployeeComponent } from './components/single-employee/single-employee.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 const routes: Routes = [
   // {path: '', pathMatch: 'full', redirectTo: ''},

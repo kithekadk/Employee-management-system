@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
-import { EmployeeDetails } from '../interfaces/employee';
-import { APIService } from '../services/api.service';
+import { AuthService } from '../../services/auth.service';
+import { EmployeeDetails } from '../../interfaces/employee';
+import { APIService } from '../../services/api.service';
 
 @Component({
   selector: 'app-register',

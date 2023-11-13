@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { user } from '../interfaces/user';
-import { EmployeesService } from '../services/employees.service';
-import { Employee } from '../interfaces/employee';
+import { EmployeesService } from '../../services/employees.service';
+import { Employee } from '../../interfaces/employee';
 import { Router } from '@angular/router';
-import { APIService } from '../services/api.service';
+import { APIService } from '../../services/api.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -14,32 +13,32 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     trigger('fadeIn',[
       transition('void => *', [
         style({
-          backgroundColor: 'white', opacity: 0, padding: '30px'
+          backgroundColor: 'white', opacity: 0, padding: '10px'
         }),
-        animate(2000, style({backgroundColor: 'lightgreen', opacity: 1, padding: '15px'}))
+        animate(500, style({backgroundColor: 'grey', opacity: 1, padding: '15px'}))
       ])
     ]),
-    trigger('sleep', [
-      transition(':enter, :leave', [
-        style({
-          backgroundColor: 'black'
-        }),
-        animate(3000, style({
-          backgroundColor: 'gray'
-        }))
-      ])
-    ]),
+    // trigger('sleep', [
+    //   transition(':enter, :leave', [
+    //     style({
+    //       backgroundColor: 'gray'
+    //     }),
+    //     animate(500, style({
+    //       backgroundColor: 'gray'
+    //     }))
+    //   ])
+    // ]),
     trigger ('backIn', [
       state('void', style({opacity: 0, marginTop: '-50px'})),
       transition('void <=> *', [
-        animate(1000)
+        animate(500)
       ])
     ])
   ]
 })
 export class AdminDashboardComponent {
   employees:Employee[] = []
-
+  filter = ''
 
   constructor(private employeesService: EmployeesService, private router: Router, private apiService:APIService){
     // this.fetchEmployees()
@@ -49,20 +48,9 @@ export class AdminDashboardComponent {
 
   getEmployees(){
     let data = this.apiService.getEmployees().subscribe(res=>{
-
-      console.log(res.employees);     
-
-
-      // console.log(this.employees.employees);
-
+      // console.log(res.employees);     
       this.employees = res.employees
-
-      // console.log(this.allEmployees);
-
-    })
-
-    
-    
+    }) 
   }
 
   async fetchEmployees(){
@@ -75,10 +63,7 @@ export class AdminDashboardComponent {
   }
 
   getEmployee(index: number){
-    console.log(index);
     let emp = this.employees[index]
-
-    console.log(emp.employee_id);
     
     this.router.navigate(['admin', emp.employee_id])
 
@@ -86,11 +71,13 @@ export class AdminDashboardComponent {
 
   sidebar = [
     {
-      value: 'Employee'
-
+      value: 'Employees'
     },
     {
-      value: 'project'
+      value: 'projects'
+    },
+    {
+      value: 'payroll'
     },
     {
       value: 'Time-entry'
