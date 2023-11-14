@@ -37,3 +37,22 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJh
 GET http://localhost:4400/employee/check_user_details
 Content-Type: application/json
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaWF0IjoxNjk5NDM3NTY1LCJleHAiOjE2OTk0NDExNjV9.2-FK-BOh1TLzkHHTxX3eF3XLMV79ta1-LUNtoIaFB8E
+
+
+
+
+
+####PROJECT ROUTES
+POST http://localhost:4400/projects/create
+Content-Type: application/json
+
+{
+    "project_name": "Project ABC",
+    "project_description": "Build a construction company",
+    "project_deadline": "2023-04-05",
+    "assigned_to": ""
+}
+
+###FETCH ALL PROJECTS
+
+GET http://localhost:4400/projects/

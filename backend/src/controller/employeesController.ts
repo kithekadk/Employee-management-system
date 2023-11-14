@@ -176,7 +176,7 @@ export const checkUserDetails = async (req:ExtendedEmployee, res:Response)=>{
 
         return res.json({
             info: req.info 
-        })
+        }) 
     }
     
 }

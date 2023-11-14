@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response, json } from 'express'
 import cors from 'cors'
 import employee_router from './routes/employeeRoutes'
+import projects_router from './routes/projectRoutes'
 
 const app = express()
 
@@ -8,6 +9,7 @@ app.use(cors())
 app.use(json())
 
 app.use('/employee', employee_router)
+app.use('/projects', projects_router)
 
 app.use((error: Error, req:Request, res:Response, next:NextFunction)=>{
     res.json({

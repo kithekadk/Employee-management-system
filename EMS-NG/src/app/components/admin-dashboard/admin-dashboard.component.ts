@@ -4,6 +4,7 @@ import { Employee } from '../../interfaces/employee';
 import { Router } from '@angular/router';
 import { APIService } from '../../services/api.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { project } from 'src/app/interfaces/project';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -38,12 +39,14 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class AdminDashboardComponent {
   employees:Employee[] = []
+  projects:project[] = []
   filter = ''
 
   constructor(private employeesService: EmployeesService, private router: Router, private apiService:APIService){
     // this.fetchEmployees()
 
     this.getEmployees()
+    this.getProjects()
   }
 
   getEmployees(){
@@ -58,8 +61,6 @@ export class AdminDashboardComponent {
 
     this.employees = employees.employees
 
-    console.log(this.employees);
-    
   }
 
   getEmployee(index: number){
@@ -67,6 +68,14 @@ export class AdminDashboardComponent {
     
     this.router.navigate(['admin', emp.employee_id])
 
+  }
+
+  getProjects(){
+    this.apiService.getProjects().subscribe(res=>{
+      
+      this.projects = res.projects
+      console.log();
+    })
   }
 
   sidebar = [

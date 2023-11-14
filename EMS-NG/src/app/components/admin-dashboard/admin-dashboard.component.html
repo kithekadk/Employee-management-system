@@ -41,9 +41,18 @@
         </div>
         
         <div class="cards flex justify-between gap-2 h-84vh mt-2">
-            <div class=" w-[68vw] bg-red-200">
-                <div class="card p-2">
-
+            <div class=" w-[68vw] p-2">
+                <div class="flex gap-2">
+                        <!-- PROJECTS COUNT -->
+                    <div class="shadow-2xl rounded-2xl w-[18%] card p-8 bg-white flex flex-col justify-center items-center ">
+                        <h1 class="mb-2 font-bold">PROJECTS</h1>
+                        <h1 class="rounded-full py-[10px] px-[20px] bg-blue-500 text-white">{{projects.length}}</h1>
+                    </div>
+                    <!-- USERS COUNT -->
+                    <div class="shadow-2xl rounded-2xl w-[18%] card p-8 bg-white flex flex-col justify-center items-center ">
+                        <h1 class="mb-2 font-bold">Employees</h1>
+                        <h1 class="rounded-full py-[10px] px-[20px] bg-blue-500 text-white">{{employees.length}}</h1>
+                    </div>
                 </div>
             </div>
 
