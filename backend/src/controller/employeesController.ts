@@ -17,63 +17,67 @@ export const registerEmployee = async(req:Request, res: Response) =>{
     try {
         let {name, email, phone_no, id_no, KRA_PIN, NHIF_NO, NSSF_NO, password} = req.body
 
-        let {error} = registerUserSchema.validate(req.body)
+        // let {error} = registerUserSchema.validate(req.body)
 
-        if(error){
-            return res.status(404).json({error: error.details})
-        }
+        // if(error){
+        //     return res.status(404).json({error: error.details})
+        // }
 
-        const emailTaken = (await dbhelper.query(`SELECT * FROM Employees WHERE email = '${email}'`)).recordset
-        const phonenoTaken = (await dbhelper.query(`SELECT * FROM Employees WHERE phone_no = '${phone_no}'`)).recordset
-        const id_no_Taken = (await dbhelper.query(`SELECT * FROM Employees WHERE id_no = '${id_no}'`)).recordset
-        const KRA_PIN_Taken = (await dbhelper.query(`SELECT * FROM Employees WHERE KRA_PIN = '${KRA_PIN}'`)).recordset
-        const NHIF_NO_Taken = (await dbhelper.query(`SELECT * FROM Employees WHERE NHIF_NO = '${NHIF_NO}'`)).recordset
-        const NSSF_NO_Taken = (await dbhelper.query(`SELECT * FROM Employees WHERE NSSF_NO = '${NSSF_NO}'`)).recordset
+        // const emailTaken = (await dbhelper.query(`SELECT * FROM Employees WHERE email = '${email}'`)).recordset
+        // const phonenoTaken = (await dbhelper.query(`SELECT * FROM Employees WHERE phone_no = '${phone_no}'`)).recordset
+        // const id_no_Taken = (await dbhelper.query(`SELECT * FROM Employees WHERE id_no = '${id_no}'`)).recordset
+        // const KRA_PIN_Taken = (await dbhelper.query(`SELECT * FROM Employees WHERE KRA_PIN = '${KRA_PIN}'`)).recordset
+        // const NHIF_NO_Taken = (await dbhelper.query(`SELECT * FROM Employees WHERE NHIF_NO = '${NHIF_NO}'`)).recordset
+        // const NSSF_NO_Taken = (await dbhelper.query(`SELECT * FROM Employees WHERE NSSF_NO = '${NSSF_NO}'`)).recordset
 
-        if(!isEmpty(emailTaken)){
-            return res.json({error: "This email is already in use"})
-        }
-        if(!isEmpty(phonenoTaken)){
-            return res.json({error: "This phone number is taken"})
-        }
-        if(!isEmpty(id_no_Taken)){
-            return res.json({error: "This ID number is taken"})
-        }
-        if(!isEmpty(KRA_PIN_Taken)){
-            return res.json({error: "This KRA PIN is taken"})
-        }
-        if(!isEmpty(NHIF_NO_Taken)){
-            return res.json({error: "This NHIF Number is taken"})
-        }
-        if(!isEmpty(NSSF_NO_Taken)){
-            return res.json({error: "This NSSF Number is taken"})
-        }
+        // if(!isEmpty(emailTaken)){
+        //     return res.json({error: "This email is already in use"})
+        // }
+        // if(!isEmpty(phonenoTaken)){
+        //     return res.json({error: "This phone number is taken"})
+        // }
+        // if(!isEmpty(id_no_Taken)){
+        //     return res.json({error: "This ID number is taken"})
+        // }
+        // if(!isEmpty(KRA_PIN_Taken)){
+        //     return res.json({error: "This KRA PIN is taken"})
+        // }
+        // if(!isEmpty(NHIF_NO_Taken)){
+        //     return res.json({error: "This NHIF Number is taken"})
+        // }
+        // if(!isEmpty(NSSF_NO_Taken)){
+        //     return res.json({error: "This NSSF Number is taken"})
+        // }
 
         let employee_id = v4()
 
         const hashedPwd = await bcrypt.hash(password, 5)
 
-        // const pool = await mssql.connect(sqlConfig)
+        const pool = await mssql.connect(sqlConfig)
 
-        // let result = await pool.request()
-        // .input("employee_id", mssql.VarChar, employee_id) 
-        // .input("name", mssql.VarChar, name)
-        // .input("email", mssql.VarChar, email)
-        // .input("phone_no", mssql.VarChar, phone_no)
-        // .input("id_no", mssql.Int, id_no)
-        // .input("KRA_PIN", mssql.VarChar, KRA_PIN)
-        // .input("NSSF_NO", mssql.VarChar, NSSF_NO)
-        // .input("NHIF_NO", mssql.VarChar, NHIF_NO) 
-        // .input("password", mssql.VarChar, hashedPwd)
-        // .execute('registerEmployee')
+        console.log("here");
         
-        let result = dbhelper.execute('registerEmployee', {
-            employee_id, name, email, phone_no, id_no, KRA_PIN, NHIF_NO, NSSF_NO, password: hashedPwd
-        })
-        
-        console.log(result);
+        let result = await pool.request()
+        .input("employee_id", mssql.VarChar, employee_id) 
+        .input("name", mssql.VarChar, name)
+        .input("email", mssql.VarChar, email)
+        .input("phone_no", mssql.VarChar, phone_no)
+        .input("id_no", mssql.Int, id_no)
+        .input("KRA_PIN", mssql.VarChar, KRA_PIN)
+        .input("NSSF_NO", mssql.VarChar, NSSF_NO)
+        .input("NHIF_NO", mssql.VarChar, NHIF_NO) 
+        .input("password", mssql.VarChar, hashedPwd)
+        .execute('registerEmployee')
 
-        return res.status(200).json({
+        // console.log("here")
+         
+        // let result = dbhelper.execute('registerEmployee', {
+        //     employee_id, name, email, phone_no, id_no, KRA_PIN, NHIF_NO, NSSF_NO, password: hashedPwd
+        // })
+        
+        // console.log(result);
+
+        return res.json({
             message: 'Employee registered successfully'
         })
         
