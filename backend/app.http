@@ -25,7 +25,7 @@ Content-Type: application/json
 ### fetching employees
 GET http://localhost:4400/employee
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaWF0IjoxNzAwMDQ0Mjk1LCJleHAiOjE3MDAwNDc4OTV9.jNl-5OAqN-p2UC8wW9zq1Ncn1aPLTJVD9kgJ7iAKB7o
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaWF0IjoxNzAwMTE4MDkyLCJleHAiOjE3MDAxMjE2OTJ9.k3GmXjJQi18Xflkc8BiT4pRRQchVkjenxCwFo9VvHbY
 
 
 ### fetching one employee
@@ -47,8 +47,8 @@ POST http://localhost:4400/projects/create
 Content-Type: application/json
 
 {
-    "project_name": "Project ABC",
-    "project_description": "Build a construction company",
+    "project_name": "Project C",
+    "project_description": "Build a construction C",
     "project_deadline": "2023-04-05",
     "assigned_to": ""
 }
@@ -56,3 +56,22 @@ Content-Type: application/json
 ###FETCH ALL PROJECTS
 
 GET http://localhost:4400/projects/
+
+
+### Fetch one project
+GET http://localhost:4400/projects/2e402706-075f-4dea-80cf-1ecfa3842ae5
+
+### Deleting a project 
+DELETE http://localhost:4400/projects/6e29b7dc-e02d-4bf2-964f-e8595b9cbf91
+
+
+### Update a project by ID
+PUT http://localhost:4400/projects/ffc3025c-42d1-4422-896a-964af22107fd
+Content-Type: application/json
+
+{
+    "project_name": "Project AB",
+    "project_description": "Build a construction AB",
+    "project_deadline": "2024-05-05",
+    "assigned_to": ""
+}

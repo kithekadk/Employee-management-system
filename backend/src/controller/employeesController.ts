@@ -8,7 +8,7 @@ import jwt from 'jsonwebtoken'
 import { LoginEmployee } from '../interfaces/employee'
 import { ExtendedEmployee } from '../middleware/verifyToken'
 import Connection from '../dbhelpers/dbhelpers'
-import { registerUserSchema } from '../validators/validators'
+import { loginUserSchema, registerUserSchema } from '../validators/validators'
 import { isEmpty } from 'lodash'
 
 const dbhelper = new Connection
@@ -77,11 +77,11 @@ export const registerEmployee = async(req:Request, res: Response) =>{
         
         // console.log(result);
 
-        return res.json({
+        return res.status(200).json({
             message: 'Employee registered successfully'
         })
         
-    } catch (error) {
+    } catch (error) { 
         return res.json({
             error: error
         })
@@ -92,9 +92,18 @@ export const loginEmployee = async(req:Request, res: Response) =>{
     try {
         const {email, password} = req.body
 
+        const {error} = loginUserSchema.validate(req.body)
+
+        if(error){
+            return res.status(422).json({error: error.message})
+        }
+
         const pool = await mssql.connect(sqlConfig)
 
         let user = await (await pool.request().input("email", email).input("password", password).execute('loginEmployee')).recordset
+
+        console.log(user);
+        
         
         if(user[0]?.email  == email){
             const CorrectPwd = await bcrypt.compare(password, user[0]?.password)
@@ -111,7 +120,7 @@ export const loginEmployee = async(req:Request, res: Response) =>{
                 return rest
             })
 
-            console.log(LoginCredentials);
+            // console.log(LoginCredentials);
 
             // dotenv.config()
             const token = jwt.sign(LoginCredentials[0], process.env.SECRET as string, {
@@ -130,7 +139,7 @@ export const loginEmployee = async(req:Request, res: Response) =>{
 
     } catch (error) {
         return res.json({
-            error: error
+            error: "Internal server error"
         })
     }
 }

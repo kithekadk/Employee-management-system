@@ -4,6 +4,7 @@ CREATE OR ALTER PROCEDURE createProject(
     @project_description VARCHAR(800),
     @project_deadline VARCHAR(200),
     @assigned_to VARCHAR(200)
+    
 )
 AS
 BEGIN

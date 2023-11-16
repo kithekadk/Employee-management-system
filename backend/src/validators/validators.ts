@@ -10,3 +10,8 @@ export const registerUserSchema = joi.object({
         NSSF_NO: joi.string(),
         password: joi.string()
 })
+
+export const loginUserSchema = joi.object({
+       email: joi.string().email().required(), 
+       password: joi.string().required()
+})
