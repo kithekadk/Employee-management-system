@@ -6,10 +6,13 @@
             EMS
         </div>
 
-        <div class="flex flex-col gap-2" *ngFor="let option of sidebar">
-            <button class="bg-blue-500 p-2 rounded text-white mb-2">{{option.value | sentenceCase}}</button>
-            <!-- <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[0].value}}</button>
-            <button class="bg-blue-500 p-2 rounded text-white">{{value.value}}</button> -->
+        <div class="flex flex-col gap-2" >
+            <!-- <button class="bg-blue-500 p-2 rounded text-white mb-2">{{option.value | sentenceCase}}</button> -->
+            <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[0].value}}</button>
+            <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[1].value}}</button>
+            <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[2].value}}</button>
+            <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[3].value}}</button>
+            <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[4].value}}</button>
         </div>
         <button (click)="fetchEmployees()">Users</button>
     </div>
@@ -52,6 +55,24 @@
                     <div class="shadow-2xl rounded-2xl w-[18%] card p-8 bg-white flex flex-col justify-center items-center ">
                         <h1 class="mb-2 font-bold">Employees</h1>
                         <h1 class="rounded-full py-[10px] px-[20px] bg-blue-500 text-white">{{employees.length}}</h1>
+                    </div>
+                </div>
+
+                <div>
+                    <h1 class="mt-4">Projects</h1>
+                        
+                    <div>
+                        <div class="w-[68vw] flex gap-2 flex-wrap">
+                            <div class="card w-[16vw] bg-blue-100 p-2 rounded-xl" *ngFor="let project of projects">
+                                <div class="flex justify-between items-center">
+                                    <div class="font-bold">{{project.project_name}}</div> 
+                                    <div class="p-[10px] rounded-full cursor-pointer hover:bg-red-200 " (click)="deleteProject(project.project_id)"><img src="assets/icons/trash-fill.svg" alt=""></div>
+                                </div>
+                                <h1>{{project.project_description}}</h1>
+                                <p>{{project.project_deadline}}</p>
+                                <p class="text-left text-red-500">Status: {{project.status | titlecase}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

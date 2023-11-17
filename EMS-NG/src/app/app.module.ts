@@ -20,7 +20,8 @@ import { SingleEmployeeComponent } from './components/single-employee/single-emp
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeesComponent } from './components/employees/employees.component';
-import { SearchPipe } from './pipes/search.pipe'
+import { SearchPipe } from './pipes/search.pipe';
+import { AllProjectsComponent } from './components/all-projects/all-projects.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SearchPipe } from './pipes/search.pipe'
     SingleEmployeeComponent,
     NotfoundComponent,
     EmployeesComponent,
-    SearchPipe
+    SearchPipe,
+    AllProjectsComponent
   ],
   imports: [
     BrowserModule,

@@ -24,9 +24,9 @@ export class LoginComponent {
 
   link:string = 'https://cdn.pixabay.com/photo/2022/03/31/13/50/login-7103076_640.png'
 
-  async authenticateUser(data:userLogin){
+  async authenticateUser(values:userLogin){
 
-    let response = await this.userAuth.login(data)
+    let response = await this.userAuth.login(values)
 
     // console.log(response);
 

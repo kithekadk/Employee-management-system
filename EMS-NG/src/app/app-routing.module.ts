@@ -6,6 +6,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
 import { SingleEmployeeComponent } from './components/single-employee/single-employee.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { AllProjectsComponent } from './components/all-projects/all-projects.component';
 
 const routes: Routes = [
   // {path: '', pathMatch: 'full', redirectTo: ''},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'admin', component: AdminDashboardComponent},
   {path: 'employee', component: EmployeeDashboardComponent},
   {path: 'admin/:employee_id', component: SingleEmployeeComponent},
+  {path: 'admin/projects', component: AllProjectsComponent},
   {path: '**', component: NotfoundComponent }
 ];
 

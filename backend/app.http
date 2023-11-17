@@ -47,8 +47,8 @@ POST http://localhost:4400/projects/create
 Content-Type: application/json
 
 {
-    "project_name": "Project C",
-    "project_description": "Build a construction C",
+    "project_name": "Project dweww",
+    "project_description": "Build a construction 34",
     "project_deadline": "2023-04-05",
     "assigned_to": ""
 }
@@ -59,7 +59,7 @@ GET http://localhost:4400/projects/
 
 
 ### Fetch one project
-GET http://localhost:4400/projects/2e402706-075f-4dea-80cf-1ecfa3842ae5
+GET http://localhost:4400/projects/e7173ed3-545d-43d4-a463-6cf79c175fe5
 
 ### Deleting a project 
 DELETE http://localhost:4400/projects/6e29b7dc-e02d-4bf2-964f-e8595b9cbf91

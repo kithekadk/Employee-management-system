@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { APIService } from '../../services/api.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { project } from 'src/app/interfaces/project';
+import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -42,7 +43,7 @@ export class AdminDashboardComponent {
   projects:project[] = []
   filter = ''
 
-  constructor(private employeesService: EmployeesService, private router: Router, private apiService:APIService){
+  constructor(private employeesService: EmployeesService, private router: Router, private apiService:APIService, private projectsService:ProjectsService){
     // this.fetchEmployees()
 
     this.getEmployees()
@@ -50,7 +51,7 @@ export class AdminDashboardComponent {
   }
 
   getEmployees(){
-    let data = this.apiService.getEmployees().subscribe(res=>{
+    this.apiService.getEmployees().subscribe(res=>{
       // console.log(res.employees);     
       this.employees = res.employees
     }) 
@@ -70,13 +71,22 @@ export class AdminDashboardComponent {
 
   }
 
-  getProjects(){
-    this.apiService.getProjects().subscribe(res=>{
-      
-      this.projects = res.projects
-      console.log();
-    })
+  async getProjects(){
+    let data = await this.projectsService.getProjects()
+
+    this.projects = data.projects
   }
+
+  deleteProject(id: string){
+    this.projectsService.deleteProject(id).subscribe(res=>{
+      console.log(res);
+      this.getProjects()
+  })
+
+    
+  }
+
+
 
   sidebar = [
     {
