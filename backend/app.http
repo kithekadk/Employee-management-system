@@ -47,8 +47,8 @@ POST http://localhost:4400/projects/create
 Content-Type: application/json
 
 {
-    "project_name": "Project dweww",
-    "project_description": "Build a construction 34",
+    "project_name": "Project 1234",
+    "project_description": "Build a construction 1234",
     "project_deadline": "2023-04-05",
     "assigned_to": ""
 }

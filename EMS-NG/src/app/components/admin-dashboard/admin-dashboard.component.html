@@ -9,7 +9,13 @@
         <div class="flex flex-col gap-2" >
             <!-- <button class="bg-blue-500 p-2 rounded text-white mb-2">{{option.value | sentenceCase}}</button> -->
             <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[0].value}}</button>
-            <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[1].value}}</button>
+            <button routerLink="/admin/projects" class="bg-blue-500 p-2 rounded text-white">{{sidebar[1].value}}</button>
+            <ul>
+                <ul class="ml-4">
+                    <li class="p-2 cursor-pointer">View Projects</li>
+                    <li class="p-2 cursor-pointer">Create Projects</li>
+                </ul>
+            </ul>
             <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[2].value}}</button>
             <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[3].value}}</button>
             <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[4].value}}</button>

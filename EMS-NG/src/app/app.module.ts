@@ -21,7 +21,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { SearchPipe } from './pipes/search.pipe';
-import { AllProjectsComponent } from './components/all-projects/all-projects.component'
+import { AllProjectsComponent } from './components/all-projects/all-projects.component';
+import { CreateProjectComponent } from './components/create-project/create-project.component'
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AllProjectsComponent } from './components/all-projects/all-projects.com
     NotfoundComponent,
     EmployeesComponent,
     SearchPipe,
-    AllProjectsComponent
+    AllProjectsComponent,
+    CreateProjectComponent
   ],
   imports: [
     BrowserModule,

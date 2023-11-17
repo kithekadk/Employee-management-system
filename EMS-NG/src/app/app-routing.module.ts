@@ -12,7 +12,9 @@ const routes: Routes = [
   // {path: '', pathMatch: 'full', redirectTo: ''},
   {path: '', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'admin', component: AdminDashboardComponent},
+  {path: 'admin', component: AdminDashboardComponent, children: [
+    // {path:'projects' , component: AllProjectsComponent}
+  ]},
   {path: 'employee', component: EmployeeDashboardComponent},
   {path: 'admin/:employee_id', component: SingleEmployeeComponent},
   {path: 'admin/projects', component: AllProjectsComponent},
