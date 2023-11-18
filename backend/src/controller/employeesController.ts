@@ -11,7 +11,7 @@ import Connection from '../dbhelpers/dbhelpers'
 import { loginUserSchema, registerUserSchema } from '../validators/validators'
 import { isEmpty } from 'lodash'
 
-const dbhelper = new Connection
+const dbhelper = new Connection 
  
 export const registerEmployee = async(req:Request, res: Response) =>{
     try {

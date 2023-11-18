@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { EmployeesService } from '../../services/employees.service';
-import { Employee } from '../../interfaces/employee';
+import { EmployeesService } from '../../../services/employees.service';
+import { Employee } from '../../../interfaces/employee';
 import { Router } from '@angular/router';
-import { APIService } from '../../services/api.service';
+import { APIService } from '../../../services/api.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { project } from 'src/app/interfaces/project';
 import { ProjectsService } from 'src/app/services/projects.service';
@@ -40,14 +40,58 @@ import { ProjectsService } from 'src/app/services/projects.service';
 })
 export class AdminDashboardComponent {
   employees:Employee[] = []
+  emplo = ['fwef','ewrwer']
   projects:project[] = []
   filter = ''
+  createProject = false
+  hide!:boolean
+  sidebarAction : boolean = true
+  activeUserAction : boolean = true
+  projectCardActions:boolean[] = []
+
 
   constructor(private employeesService: EmployeesService, private router: Router, private apiService:APIService, private projectsService:ProjectsService){
     // this.fetchEmployees()
-
+    
     this.getEmployees()
     this.getProjects()
+
+
+    if((this.router.url).includes('create-project')){
+      this.createProject = true
+    }this.createProject = false
+    
+  }
+
+  toggleActions(index:number){
+    this.projectCardActions[index] = !this.projectCardActions[index]
+  }
+
+  viewDashboard(){
+    this.sidebarAction = true
+    this.createProject = false
+    this.hide = false
+    this.router.navigate(['/admin'])
+  }
+
+  viewProjects(){
+    this.sidebarAction = true
+    this.router.navigate(['/admin/projects'])
+    this.createProject = false
+    this.hide = true
+
+    this.getProjects()
+  }
+
+  showRegisterForm(){
+    this.sidebarAction = false
+    this.router.navigate(['/admin/register'])
+  }
+
+  showUser(status: boolean){
+    this.activeUserAction = false
+    this.sidebarAction = true
+    this.router.navigate(['/admin/projects'])
   }
 
   getEmployees(){
@@ -81,9 +125,14 @@ export class AdminDashboardComponent {
     this.projectsService.deleteProject(id).subscribe(res=>{
       console.log(res);
       this.getProjects()
-  })
+  })    
+  }
 
-    
+
+  createProjectForm(){
+      this.sidebarAction = true
+      this.createProject = true
+      this.router.navigate(['admin/create-project'])
   }
 
 
@@ -93,10 +142,13 @@ export class AdminDashboardComponent {
       value: 'Employees'
     },
     {
-      value: 'projects'
+      value: 'Projects'
     },
     {
-      value: 'payroll'
+      value: 'Teams'
+    },
+    {
+      value: 'Payroll'
     },
     {
       value: 'Time-entry'

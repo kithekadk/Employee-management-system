@@ -15,3 +15,5 @@ BEGIN
 END
 
 SELECT * FROM Projects
+
+ALTER TABLE Projects ADD isDeleted BIT DEFAULT 0

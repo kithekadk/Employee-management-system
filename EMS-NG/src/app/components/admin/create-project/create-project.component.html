@@ -1,0 +1,39 @@
+<form #createUserForm="ngForm" (ngSubmit)="createnewProject(createUserForm)" class="flex justify-center w-[67vw]">
+    <div class=" flex flex-col items-center bg-blue-100 p-4 rounded">
+        <!-- <p class="w-[35vw] text-right"><i (click)="viewProjects()" class="fa-solid fa-circle-xmark fa-2xl cursor-pointer text-blue-300"></i></p> -->
+        <div>
+            <div class="text-center font-bold text-[30px]">CREATE PROJECT</div>
+        <div>
+            <label for="">Project Name:</label> &nbsp; <br>
+            <input type="text" ngModel name="project_name" class="w-[30vw] p-2">
+        </div><br>
+
+        <div>
+            <label for="">Project Description:</label> &nbsp;<br>
+            <textarea ngModel name="project_description" class="w-[30vw] h-[100px] p-2" ></textarea>
+        </div><br>
+        <div>
+            <label for="">Project Deadline:</label> &nbsp;<br>
+            <input type="date" ngModel name="project_deadline" class="w-[30vw] p-2 border rounded focus:outline-none focus:border-blue-500">
+        </div><br>
+
+        <div>
+            <!-- {{emplo[0]}} -->
+            <label for="">Assign To:</label> &nbsp;<br>
+            <select name="" class="p-2 w-[9vw]">
+                <option value="">Team</option>
+                <option value="">Employee</option>
+            </select> &nbsp;
+            <select ngModel name="assigned_to" class="w-[20vw] p-2" >
+                <option value="" selected>--Select From List--</option>
+                <option *ngFor="let employee of employees" value="{{employee.employee_id}}">{{employee.name}}</option>
+            </select>
+        </div>
+
+        <div>
+            <input type="submit" value="Create Project" class="w-[30vw] py-2 mt-4 bg-blue-500 font-bold text-white cursor-pointer hover:bg-blue-600">
+        </div>
+        </div>
+    </div>
+</form>
+

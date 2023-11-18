@@ -20,6 +20,9 @@ export class AllProjectsComponent {
     let data = await this.projectService.getProjects()
 
     this.projects = data.projects
+
+    console.log(this.projects);
+    
   }
 
   async deleteProject(id: string){
@@ -29,5 +32,6 @@ export class AllProjectsComponent {
 
     this.router.navigate(['/admin'])
   }
+
 
 }

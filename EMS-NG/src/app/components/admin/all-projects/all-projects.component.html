@@ -2,9 +2,10 @@
     <div class="card w-[16vw] bg-blue-100 p-2 rounded-xl" *ngFor="let project of projects">
         <div class="flex justify-between items-center">
             <div class="font-bold">{{project.project_name}}</div> 
-            <div class="p-[10px] rounded-full cursor-pointer hover:bg-red-200 " (click)="deleteProject(project.project_id)"><img src="assets/icons/trash-fill.svg" alt=""></div>
+            <div class="p-[10px] rounded-full cursor-pointer hover:bg-red-200 " (click)="deleteProject(project.project_id)"><i class="fa-solid fa-ellipsis"></i></div>
         </div>
         <h1>{{project.project_description}}</h1>
+        <p>{{project}}</p>
         <p>{{project.project_deadline}}</p>
         <p class="text-left text-red-500">Status: {{project.status | titlecase}}</p>
     </div>

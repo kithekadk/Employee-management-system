@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { project } from '../interfaces/project';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,13 @@ import { Injectable } from '@angular/core';
 export class ProjectsService {
 
   constructor(private http:HttpClient) { }
+
+  createProject(project: project){
+    return this.http.post(`http://localhost:4400/projects/create`, project).subscribe(res=>{
+      console.log(res);
+      
+    })
+  }
 
   async getProjects(){
     let projects = await fetch('http://localhost:4400/projects/',{
