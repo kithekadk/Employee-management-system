@@ -35,7 +35,7 @@
             <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[4].value}}</button>
             <button class="bg-blue-500 p-2 rounded text-white">{{sidebar[5].value}}</button>
         </div>
-        <button (click)="fetchEmployees()">Users</button>
+        <button (click)="getEmployees()">Users</button>
     </div>
 
     <div class="ml-[0.5vw] my-[20px]  p-[25px] w-[88vw] bg-white rounded-2xl" *ngIf="sidebarAction" >
@@ -137,9 +137,10 @@
         </div>
     </div>
 
-    <!-- USER REGISTRATION -->
+    <!-- EMPLOYEES ACTIONS -->
     <div class="w-[85vw] h-[90vh] flex justify-center items-center" *ngIf="!sidebarAction">
-        <app-register ></app-register>
+        <app-register *ngIf="activeUserAction"></app-register>
+        <app-employees *ngIf="!activeUserAction" [employees]="filteredEmployees" (getEmployeesEvent)="getEmployees()"></app-employees>
     </div>
 
     <!-- View Active Users -->

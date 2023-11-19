@@ -124,7 +124,7 @@ export const loginEmployee = async(req:Request, res: Response) =>{
 
             // dotenv.config()
             const token = jwt.sign(LoginCredentials[0], process.env.SECRET as string, {
-                expiresIn: '3600s'
+                expiresIn: '24h'
             }) 
 
             return res.status(200).json({
@@ -176,6 +176,30 @@ export const getOneEmployees = async(req:Request, res:Response)=>{
             employee: employee
         })
         
+    } catch (error) {
+        return res.json({
+            error: error
+        })
+    }
+}
+
+export const employeeStatus = async (req: Request, res:Response)=>{
+    try {
+        
+        let {employee_id} = req.params
+        let {isDeleted} = req.body
+
+        const pool = await mssql.connect(sqlConfig)
+
+        const result = await pool.request()
+        .input("employee_id", employee_id) 
+        .input("isDeleted", isDeleted)
+        .execute("deleteEmployee")
+        
+        console.log(result);
+
+        return res.json({message: result})
+
     } catch (error) {
         return res.json({
             error: error

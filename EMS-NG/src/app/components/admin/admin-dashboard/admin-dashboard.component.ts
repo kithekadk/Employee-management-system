@@ -40,6 +40,7 @@ import { ProjectsService } from 'src/app/services/projects.service';
 })
 export class AdminDashboardComponent {
   employees:Employee[] = []
+  filteredEmployees:Employee[] = []
   emplo = ['fwef','ewrwer']
   projects:project[] = []
   filter = ''
@@ -59,7 +60,11 @@ export class AdminDashboardComponent {
 
     if((this.router.url).includes('create-project')){
       this.createProject = true
-    }this.createProject = false
+    }
+    if((this.router.url).includes('admin/employees')){
+      this.showUser(true)
+    }
+
     
   }
 
@@ -85,13 +90,24 @@ export class AdminDashboardComponent {
 
   showRegisterForm(){
     this.sidebarAction = false
+    this.activeUserAction = true
     this.router.navigate(['/admin/register'])
   }
 
+
   showUser(status: boolean){
+    this.sidebarAction = false
     this.activeUserAction = false
-    this.sidebarAction = true
-    this.router.navigate(['/admin/projects'])
+
+    this.apiService.getEmployees().subscribe(res=>{    
+      this.employees = res.employees
+
+      this.filteredEmployees = this.employees.filter(employee=>{
+        return employee.isDeleted == status
+      })
+    }) 
+
+    this.router.navigate(['/admin/employees'])
   }
 
   getEmployees(){
@@ -101,12 +117,12 @@ export class AdminDashboardComponent {
     }) 
   }
 
-  async fetchEmployees(){
-    let employees = await this.employeesService.getEmployees()
+  // async fetchEmployees(){
+  //   let employees = await this.employeesService.getEmployees()
 
-    this.employees = employees.employees
+  //   this.employees = employees.employees
 
-  }
+  // }
 
   getEmployee(index: number){
     let emp = this.employees[index]

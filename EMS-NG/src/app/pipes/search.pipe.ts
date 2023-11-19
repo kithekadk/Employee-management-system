@@ -6,15 +6,15 @@ import { Employee } from '../interfaces/employee';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(employees: Employee[], name: string): Employee[] {
-    if(!employees || name == ''){
+  transform(employees: Employee[], email: string): Employee[] {
+    if(!employees || email == ''){
       return employees
     }
     
     const filtered : Employee[] = []
 
     for (let employee of employees){
-      if(employee.name.toLowerCase().includes(name.toLowerCase())){
+      if(employee.email.toLowerCase().includes(email.toLowerCase())){
         filtered.push(employee)
       }
     }

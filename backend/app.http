@@ -25,20 +25,26 @@ Content-Type: application/json
 ### fetching employees
 GET http://localhost:4400/employee
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaWF0IjoxNzAwMTE4MDkyLCJleHAiOjE3MDAxMjE2OTJ9.k3GmXjJQi18Xflkc8BiT4pRRQchVkjenxCwFo9VvHbY
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjpmYWxzZSwiaWF0IjoxNzAwMzg4ODI0LCJleHAiOjE3MDA0NzUyMjR9.0lrP2SN9GQ7_c6X1ONfukNpwZHaie_GfaLdG3zhAdAI
 
 
 ### fetching one employee
-GET http://localhost:4400/employee/0adbb3b5-dead-448f-9ca1-44f93d0e5527
+GET http://localhost:4400/employee/4098b7ca-4cd3-42f0-9504-78d94f59f162
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaWF0IjoxNjk5NTIzMzk0LCJleHAiOjE2OTk1MjY5OTR9.QxZyCOD7_VF6vGef36vbr5JAFAKB6-RvolRw9TLeOy4
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjpmYWxzZSwiaWF0IjoxNzAwMzQyNjEyLCJleHAiOjE3MDAzNDYyMTJ9.YVvDdAanyf3HpS4Cgq8VJKLVxVU51zc0JBW0xYENXQ8
 
 ### checking user details
 GET http://localhost:4400/employee/check_user_details
 Content-Type: application/json
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaWF0IjoxNjk5NDM3NTY1LCJleHAiOjE2OTk0NDExNjV9.2-FK-BOh1TLzkHHTxX3eF3XLMV79ta1-LUNtoIaFB8E
 
+### Delete Employee
+PUT http://localhost:4400/employee/4098b7ca-4cd3-42f0-9504-78d94f59f162
+Content-Type: application/json
 
+{
+    "isDeleted": true
+}
 
 
 
@@ -63,6 +69,7 @@ GET http://localhost:4400/projects/e7173ed3-545d-43d4-a463-6cf79c175fe5
 
 ### Deleting a project 
 DELETE http://localhost:4400/projects/6e29b7dc-e02d-4bf2-964f-e8595b9cbf91
+
 
 
 ### Update a project by ID

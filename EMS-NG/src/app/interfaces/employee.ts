@@ -21,4 +21,5 @@ export interface Employee{
     password: string,
     welcomed: boolean,
     role: string
+    isDeleted: boolean
 }

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class EmployeesService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   
 
@@ -53,5 +54,10 @@ export class EmployeesService {
     let data = await res.json()
 
     return data.employee
+  }
+
+  changeEmployeeStatus(employee_id: string, isDeleted:boolean){
+
+    return this.http.put(`http://localhost:4400/employee/${employee_id}`, {isDeleted})
   }
 }
