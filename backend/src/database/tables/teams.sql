@@ -1,0 +1,3 @@
+CREATE TABLE Teams (team_ID VARCHAR(200) NOT NULL, team_Name VARCHAR(200) NOT NULL, members VARCHAR(1000) NOT NULL, project_assigned VARCHAR(500), isAssigned BIT DEFAULT 0)
+
+

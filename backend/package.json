@@ -21,6 +21,7 @@
     "@types/joi": "^17.2.3",
     "@types/jsonwebtoken": "^9.0.4",
     "@types/mssql": "^9.1.2",
+    "@types/supertest": "^2.0.16",
     "@types/uuid": "^9.0.6",
     "bcrypt": "^5.1.1",
     "concurrently": "^8.2.2",
@@ -32,6 +33,7 @@
     "lodash": "^4.17.21",
     "mssql": "^10.0.1",
     "nodemon": "^3.0.1",
+    "supertest": "^6.3.3",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

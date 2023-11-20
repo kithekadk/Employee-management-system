@@ -157,7 +157,7 @@ export class AdminDashboardComponent {
     {
       value: 'Employees'
     },
-    {
+    { 
       value: 'Projects'
     },
     {

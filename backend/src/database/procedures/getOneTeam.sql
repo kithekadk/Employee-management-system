@@ -1,0 +1,5 @@
+CREATE OR ALTER PROCEDURE fetchOneTeam(@team_ID VARCHAR(200))
+AS
+BEGIN
+    SELECT * FROM Teams WHERE team_ID = @team_ID
+END

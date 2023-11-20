@@ -25,7 +25,7 @@ Content-Type: application/json
 ### fetching employees
 GET http://localhost:4400/employee
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjpmYWxzZSwiaWF0IjoxNzAwMzg4ODI0LCJleHAiOjE3MDA0NzUyMjR9.0lrP2SN9GQ7_c6X1ONfukNpwZHaie_GfaLdG3zhAdAI
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjp0cnVlLCJpYXQiOjE3MDA0NzIxMzEsImV4cCI6MTcwMDU1ODUzMX0.Ty9GQnN0mjXNce3RT7UGHgDK7CIx3FmJwxO4uhBO5oc
 
 
 ### fetching one employee
@@ -36,7 +36,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJh
 ### checking user details
 GET http://localhost:4400/employee/check_user_details
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaWF0IjoxNjk5NDM3NTY1LCJleHAiOjE2OTk0NDExNjV9.2-FK-BOh1TLzkHHTxX3eF3XLMV79ta1-LUNtoIaFB8E
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjp0cnVlLCJpYXQiOjE3MDA0NjQwOTIsImV4cCI6MTcwMDU1MDQ5Mn0.q3gT-P3dN8R3pilhSYbJD576jMg1KxN6xKgNNNVMCps
 
 ### Delete Employee
 PUT http://localhost:4400/employee/4098b7ca-4cd3-42f0-9504-78d94f59f162
@@ -82,3 +82,23 @@ Content-Type: application/json
     "project_deadline": "2024-05-05",
     "assigned_to": ""
 }
+
+
+###TEAMS TOUTES
+
+POST http://localhost:4400/teams/create
+Content-Type: application/json
+
+{
+    "team_Name": "Manchester Red",
+    "members": "dd74433f-c1f4-4305-9e8d-6cca13384712 , 915d2e63-db51-47ea-a027-74f14955178e",
+    "project_assigned": "7992cb0d-4006-46d3-83da-7c9b035af96f"
+}
+
+### GET ALL TEAMS
+
+GET http://localhost:4400/teams/
+
+
+### GET ONE TEAM
+GET http://localhost:4400/teams/41177255-ccd1-4020-b301-8209ff3650a3
