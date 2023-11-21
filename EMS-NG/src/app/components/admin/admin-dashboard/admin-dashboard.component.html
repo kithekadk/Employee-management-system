@@ -9,18 +9,18 @@
         <div class="flex flex-col gap-2" >
             <button (click)="viewDashboard()" class="bg-blue-500 p-2 rounded text-white mb-2">Dashboard</button>
             <details class="marker:content-[''] rounded text-white cursor-pointer">
-                <summary class=" p-2 bg-blue-500 hover:bg-blue-700"><span><i class="fa-solid fa-people-group mr-2"></i></span>{{sidebar[0].value}}</summary>    
+                    <summary class="employees p-2 bg-blue-500 hover:bg-blue-700"><span><i class="fa-solid fa-people-group mr-2"></i></span>{{sidebar[0].value}}</summary>
                     <ul class="ml-4 ">
-                        <li (click)="showRegisterForm()" class="p-2 cursor-pointer bg-blue-400 mt-[2px] hover:bg-blue-600"><span><i class="fa-sharp fa-solid fa-eye mr-2" style="color:lightgreen"></i></span>New Employee</li>
+                        <li data-cy="register-employee-btn" (click)="showRegisterForm()" class="p-2 cursor-pointer bg-blue-400 mt-[2px] hover:bg-blue-600"><span><i class="fa-sharp fa-solid fa-eye mr-2" style="color:lightgreen"></i></span>New Employee</li>
                         <li (click)="showUser(false)" class="p-2 cursor-pointer bg-blue-400 mt-[2px] hover:bg-blue-600"><span><i class="fa-sharp fa-solid fa-eye mr-2" style="color:lightgreen"></i></span>Active Users</li>
                         <li (click)="showUser(true)" class="p-2 cursor-pointer bg-blue-400 mt-[2px] hover:bg-blue-600"><span><i class="fa-sharp fa-solid fa-eye-slash fa-beat-fade mr-2" style="color: #ff0000;"></i></span>Deactivated Users</li>
                     </ul>
             </details>
 
             <details class="marker:content-[''] rounded text-white cursor-pointer">
-                <summary class=" p-2 bg-blue-500 hover:bg-blue-700"><span><i class="fa-solid fa-folder mr-2"></i></span>{{sidebar[1].value}}</summary>    
+                <summary data-cy="projects" class=" p-2 bg-blue-500 hover:bg-blue-700"><span><i class="fa-solid fa-folder mr-2"></i></span>{{sidebar[1].value}}</summary>    
                     <ul class="ml-4 ">
-                        <li (click)="createProjectForm()" class="p-2 cursor-pointer bg-blue-400 mt-[2px] hover:bg-blue-600"><span><i class="fa-solid fa-circle-plus mr-2"></i></span>Create Projects</li>
+                        <li data-cy="create-project-btn" (click)="createProjectForm()" class="p-2 cursor-pointer bg-blue-400 mt-[2px] hover:bg-blue-600"><span><i class="fa-solid fa-circle-plus mr-2"></i></span>Create Projects</li>
                         <li (click)="viewProjects()" class="p-2 cursor-pointer bg-blue-400 mt-[2px] hover:bg-blue-600"><span><i class="fa-sharp fa-solid fa-eye mr-2"></i></span>View Projects</li>
                     </ul>
             </details>
@@ -84,8 +84,8 @@
                     <h1 class="mt-4">Projects</h1>
                         
                     <div>
-                        <div class="w-[68vw] flex gap-2 flex-wrap">
-                            <div class="card w-[16vw] bg-blue-100 p-2 rounded-xl" *ngFor="let project of projects; let i= index">
+                        <div class=" w-[68vw] flex gap-2 flex-wrap">
+                            <div data-cy="all-projects" class="card w-[16vw] bg-blue-100 p-2 rounded-xl" *ngFor="let project of projects; let i= index">
                                 <div class="flex justify-between items-center">
                                     <div class="font-bold">{{project.project_name}}</div> 
                                     

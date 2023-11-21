@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { EmployeeDetails } from '../../../interfaces/employee';
@@ -9,7 +9,7 @@ import { APIService } from '../../../services/api.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
   registrationForm!: FormGroup
 
   constructor(private authService: AuthService, private fb:FormBuilder, private apiService: APIService){
@@ -36,8 +36,20 @@ export class RegisterComponent {
     })
   }
 
+  ngOnInit(): void {
+    
+    // this.registrationForm.get('phone_no')?.valueChanges.subscribe(res=>{
+    //   this.registrationForm.get('phone_no')?.value
+
+    //   let number:number =  (this.registrationForm.get('phone_no')?.value);
+
+    //   return number.toString()
+    // })
+  }
+
   createEmployee(){
     console.log(this.registrationForm.value);
+
 
     let details: EmployeeDetails = this.registrationForm.value
     

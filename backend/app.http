@@ -3,12 +3,12 @@ Content-Type: application/json
 
 {
     "name": "Daniel Kitheka",
-    "email": "daniel05@yopmail.com",
-    "phone_no": "0753879564",
-    "id_no": "35374563",
-    "KRA_PIN": "Agh6792XXY3",
-    "NHIF_NO": "NtIF789843",
-    "NSSF_NO": "NFSF78879DS",
+    "email": "daniel09@yopmail.com",
+    "phone_no": "750079564",
+    "id_no": 39744563,
+    "KRA_PIN": "AJF792XXY3",
+    "NHIF_NO": "NHIF997H43",
+    "NSSF_NO": "NSS88N9DS",
     "password": "12345678"
 }
 
@@ -25,7 +25,7 @@ Content-Type: application/json
 ### fetching employees
 GET http://localhost:4400/employee
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjp0cnVlLCJpYXQiOjE3MDA0NzIxMzEsImV4cCI6MTcwMDU1ODUzMX0.Ty9GQnN0mjXNce3RT7UGHgDK7CIx3FmJwxO4uhBO5oc
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjp0cnVlLCJpYXQiOjE3MDA1NTg3OTEsImV4cCI6MTcwMDY0NTE5MX0.SGrQ-sDrS0qtgDNpYhx5Wz6E9DCXOiH3LR5DSG9MKz4
 
 
 ### fetching one employee

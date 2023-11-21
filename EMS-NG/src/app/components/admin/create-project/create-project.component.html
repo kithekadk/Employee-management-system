@@ -20,11 +20,11 @@
         <div>
             <!-- {{emplo[0]}} -->
             <label for="">Assign To:</label> &nbsp;<br>
-            <select name="" class="p-2 w-[9vw]">
-                <option value="">Team</option>
-                <option value="">Employee</option>
+            <select data-cy="assignto" name="" class="p-2 w-[9vw]">
+                <option value="team">Team</option>
+                <option value="employee">Employee</option>
             </select> &nbsp;
-            <select ngModel name="assigned_to" class="w-[20vw] p-2" >
+            <select  ngModel name="assigned_to" class="w-[20vw] p-2" >
                 <option value="" selected>--Select From List--</option>
                 <option *ngFor="let employee of employees" value="{{employee.employee_id}}">{{employee.name}}</option>
             </select>
