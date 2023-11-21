@@ -1,8 +1,8 @@
--- CREATE OR ALTER PROCEDURE fetchAllEmployees
--- AS
--- BEGIN
---     SELECT * FROM Employees WHERE role != 'admin'
--- END
+CREATE OR ALTER PROCEDURE fetchAllEmployees
+AS
+BEGIN
+    SELECT * FROM Employees WHERE role != 'admin'
+END
  
 
 

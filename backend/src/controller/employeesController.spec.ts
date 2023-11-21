@@ -200,3 +200,67 @@ describe ("Testing Login Functionality", ()=>{
         }) 
     }) 
 }) 
+
+describe ("Employee Registration", ()=>{
+
+    let res:any;
+
+    beforeEach(()=>{
+        res = {
+            status: jest.fn().mockReturnThis(),
+            json: jest.fn().mockReturnThis()
+        };
+    })
+
+    it("successfully registers an employee", async()=>{
+        const req = {
+            body: {
+                name: "Test Test", 
+                email: "test@yopmail.com", 
+                phone_no: "07857646576", 
+                id_no: "367577998", 
+                KRA_PIN: "jgjfuy86869", 
+                NHIF_NO: "NHIFT86SF", 
+                NSSF_NO: "NSSFLY986D", 
+                password: "HashedPass@word123"
+            }
+        }
+
+        // jest.mock('bcrypt', ()=>({
+        //     hash: jest.fn().mockResolvedValue("hashedPassword_khfguhdg_dzgjdf")
+        // }))
+
+        jest.spyOn(bcrypt, 'hash').mockResolvedValueOnce("HashedPass@word123" as never)
+
+        const mockedInput = jest.fn().mockReturnThis() //makes it chainable
+
+        const mockedExecute = jest.fn().mockResolvedValue({rowsAffected: [1]})
+
+        const mockedRequest = {
+            input: mockedInput,
+            execute: mockedExecute
+        }
+
+        const mockedPool = { 
+            request: jest.fn().mockReturnValue(mockedRequest)
+        }
+
+        // jest.mock('mssql', ()=>({
+        //     connect: jest.fn().mockResolvedValue(mockedPool)
+        // }))
+
+        jest.spyOn(mssql, 'connect').mockResolvedValue(mockedPool as never)
+
+        await registerEmployee(req as Request, res as any)
+
+        // Assertions
+
+        expect(res.json).toHaveBeenCalledWith({message: 'Employee registered successfully'})
+        expect(res.status).toHaveBeenCalledWith(200)
+        expect(mockedInput).toHaveBeenCalledWith('password',  mssql.VarChar, 'HashedPass@word123')
+        expect(mockedInput).toHaveBeenCalledWith('name',  mssql.VarChar, 'Test Test')
+        expect(mockedInput).toHaveBeenCalledWith('email',  mssql.VarChar, 'test@yopmail.com')
+        expect(mockedInput).toHaveBeenCalledWith('id_no',  mssql.Int, '367577998')
+    })
+
+})
