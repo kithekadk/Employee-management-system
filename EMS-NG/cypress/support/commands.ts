@@ -35,3 +35,15 @@
 //     }
 //   }
 // }
+
+/// <reference path="index.d.ts"/>
+
+Cypress.Commands.add('loginUser', ()=>{
+    cy.visit('/')
+    cy.get('[data-cy="email"]').type('dankinyi99@gmail.com')
+    cy.get('[data-cy="password"]').type('12345678')
+    cy.get('[data-cy="login-btn"]').click().then(el=>{
+        cy.location('pathname').should('eq', '/admin')
+    })
+})
+
