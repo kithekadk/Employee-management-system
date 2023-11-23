@@ -7,6 +7,9 @@
       "jasmine"
     ]
   },
+  "files": [
+    "jasmine-global.ts"
+  ],
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"

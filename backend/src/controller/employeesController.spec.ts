@@ -119,7 +119,7 @@ describe ("Testing Login Functionality", ()=>{
             body:{
                 email: "incorrect@email.com",
                 password: "12345678"
-            }
+            } 
         }
 
         jest.spyOn(mssql, 'connect').mockResolvedValueOnce({
@@ -127,7 +127,7 @@ describe ("Testing Login Functionality", ()=>{
             input: jest.fn().mockReturnThis(),
             execute: jest.fn().mockResolvedValueOnce({recordset: []})
         } as never)
-
+ 
         await loginEmployee(req as Request, res)
 
         expect(res.json).toHaveBeenCalledWith({error: "Email not found"}) 

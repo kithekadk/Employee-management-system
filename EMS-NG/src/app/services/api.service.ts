@@ -20,9 +20,6 @@ export class APIService {
         'token': token
       })
     })
-
-    // console.log(res);
-    
   }
 
   createEmployee (employee: EmployeeDetails){
