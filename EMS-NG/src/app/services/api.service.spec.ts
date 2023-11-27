@@ -1,11 +1,10 @@
-import 'jasmine'
 import { TestBed } from '@angular/core/testing';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing'
 
 import { APIService } from './api.service';
 
 describe('APIService', () => {
-  let service: APIService;
+  let service: APIService; 
   let httpMock : HttpTestingController
 
   beforeEach(() => {
@@ -52,12 +51,10 @@ describe('APIService', () => {
     }
 
     service.getEmployees().subscribe(res=>{
-      expect(res.employees).toBeDefined()
+      expect(res.employees).toEqual(mockEmployees.employees)
     })
 
-    
-
-    // const req = httpMock.expectOne('http://localhost:4400/employee');
-    // expect(req.request.method).toBe('GET')
+    const req = httpMock.expectOne('http://localhost:4400/employee');
+    expect(req.request.method).toBe('GET')
   });
 }); 
