@@ -2,13 +2,13 @@ POST http://localhost:4400/employee/register
 Content-Type: application/json
 
 {
-    "name": "Daniel Kitheka",
-    "email": "daniel09@yopmail.com",
-    "phone_no": "750079564",
-    "id_no": 39744563,
-    "KRA_PIN": "AJF792XXY3",
-    "NHIF_NO": "NHIF997H43",
-    "NSSF_NO": "NSS88N9DS",
+    "name": "DaN Kitheka",
+    "email": "daniel039@yopmail.com",
+    "phone_no": "7509979564",
+    "id_no": 39044563,
+    "KRA_PIN": "KRAF792XXY3",
+    "NHIF_NO": "NHIF900H43",
+    "NSSF_NO": "NS118N9DS",
     "password": "12345678"
 }
 
@@ -25,7 +25,7 @@ Content-Type: application/json
 ### fetching employees
 GET http://localhost:4400/employee
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjp0cnVlLCJpYXQiOjE3MDA3MzA4MTMsImV4cCI6MTcwMDgxNzIxM30.PAzH_8OVZD-MROpTZpA80hWWe9yUTE8g_e__vNqFH50
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjp0cnVlLCJpYXQiOjE3MDExNTU1NjksImV4cCI6MTcwMTI0MTk2OX0.UJPGxAEUPPJhrJEBuOeG9Q5-jnoih7o0_JLnqc6X_wg
 
 
 ### fetching one employee
@@ -68,7 +68,7 @@ GET http://localhost:4400/projects/
 GET http://localhost:4400/projects/e7173ed3-545d-43d4-a463-6cf79c175fe5
 
 ### Deleting a project 
-DELETE http://localhost:4400/projects/6e29b7dc-e02d-4bf2-964f-e8595b9cbf91
+DELETE http://localhost:4400/projects/19ed8e8f-7cb3-44ef-9790-c7078949a38c
 
 
 

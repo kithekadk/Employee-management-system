@@ -14,16 +14,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'EMS-NG'`, () => {
+  it(`should have as title 'Employee Management System'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('EMS-NG');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('EMS-NG app is running!');
+    expect(app.title).toEqual('Employee Management System');
+    expect(app.subtitle).toBe('EMS')
   });
 });

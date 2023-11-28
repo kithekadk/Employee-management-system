@@ -51,10 +51,33 @@ describe('APIService', () => {
     }
 
     service.getEmployees().subscribe(res=>{
-      expect(res.employees).toEqual(mockEmployees.employees)
+      expect(res).toEqual(mockEmployees)
     })
 
     const req = httpMock.expectOne('http://localhost:4400/employee');
     expect(req.request.method).toBe('GET')
   });
+
+  it('should create an employee', ()=>{
+    let mockEmployee ={
+        name: "Daniel Kitheka",
+        email: "daniel09@yopmail.com",
+        phone_no: "750079564",
+        id_no: 39744563,
+        KRA_PIN: "AJF792XXY3",
+        NHIF_NO: "NHIF997H43",
+        NSSF_NO: "NSS88N9DS",
+        password: "12345678"
+    }
+
+    service.createEmployee(mockEmployee).subscribe(res=>{
+      expect(res).toEqual({"message": "Employee registered successfully"})
+    })
+
+    const req = httpMock.expectOne('http://localhost:4400/employee/register');
+    expect(req.request.method).toEqual('POST')
+    expect(req.request.body).toBe(mockEmployee)
+
+    req.flush({"message": "Employee registered successfully"})
+  })
 }); 
