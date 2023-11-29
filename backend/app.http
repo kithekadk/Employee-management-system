@@ -2,13 +2,13 @@ POST http://localhost:4400/employee/register
 Content-Type: application/json
 
 {
-    "name": "DaN Kitheka",
-    "email": "daniel039@yopmail.com",
-    "phone_no": "7509979564",
-    "id_no": 39044563,
-    "KRA_PIN": "KRAF792XXY3",
-    "NHIF_NO": "NHIF900H43",
-    "NSSF_NO": "NS118N9DS",
+    "name": "DaNIel Kitheka",
+    "email": "dan04@yopmail.com",
+    "phone_no": "7509294560",
+    "id_no": 310444531,
+    "KRA_PIN": "KRAF43792Y",
+    "NHIF_NO": "NHIF93040H",
+    "NSSF_NO": "NS118N34D",
     "password": "12345678"
 }
 
@@ -25,7 +25,7 @@ Content-Type: application/json
 ### fetching employees
 GET http://localhost:4400/employee
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjp0cnVlLCJpYXQiOjE3MDExNTU1NjksImV4cCI6MTcwMTI0MTk2OX0.UJPGxAEUPPJhrJEBuOeG9Q5-jnoih7o0_JLnqc6X_wg
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjp0cnVlLCJpYXQiOjE3MDEyNDI4MDAsImV4cCI6MTcwMTMyOTIwMH0.BxNd15Y1IX1AaXDg70BRQt7WI_JhWRXWySMN_PoSAaw
 
 
 ### fetching one employee

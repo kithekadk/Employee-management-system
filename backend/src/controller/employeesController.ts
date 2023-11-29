@@ -7,21 +7,22 @@ import jwt from 'jsonwebtoken'
 // import dotenv from 'dotenv'
 import { LoginEmployee } from '../interfaces/employee'
 import { ExtendedEmployee } from '../middleware/verifyToken'
-import Connection from '../dbhelpers/dbhelpers'
 import { loginUserSchema, registerUserSchema } from '../validators/validators'
 import { isEmpty } from 'lodash'
+import dbHelper from '../dbhelpers/dbhelpers'
 
-const dbhelper = new Connection 
+
+// const dbhelper = new Connection 
  
 export const registerEmployee = async(req:Request, res: Response) =>{
     try {
         let {name, email, phone_no, id_no, KRA_PIN, NHIF_NO, NSSF_NO, password} = req.body
 
-        // let {error} = registerUserSchema.validate(req.body)
+        let {error} = registerUserSchema.validate(req.body)
 
-        // if(error){
-        //     return res.status(404).json({error: error.details})
-        // }
+        if(error){
+            return res.status(404).json({error: error.details})
+        }
 
         // const emailTaken = (await dbhelper.query(`SELECT * FROM Employees WHERE email = '${email}'`)).recordset
         // const phonenoTaken = (await dbhelper.query(`SELECT * FROM Employees WHERE phone_no = '${phone_no}'`)).recordset
@@ -53,35 +54,41 @@ export const registerEmployee = async(req:Request, res: Response) =>{
 
         const hashedPwd = await bcrypt.hash(password, 5)
 
-        const pool = await mssql.connect(sqlConfig)
+        // const pool = await mssql.connect(sqlConfig)
 
-        console.log("here");
+        // console.log("here");
         
-        let result = await pool.request()
-        .input("employee_id", mssql.VarChar, employee_id) 
-        .input("name", mssql.VarChar, name)
-        .input("email", mssql.VarChar, email)
-        .input("phone_no", mssql.VarChar, phone_no)
-        .input("id_no", mssql.Int, id_no)
-        .input("KRA_PIN", mssql.VarChar, KRA_PIN)
-        .input("NSSF_NO", mssql.VarChar, NSSF_NO)
-        .input("NHIF_NO", mssql.VarChar, NHIF_NO) 
-        .input("password", mssql.VarChar, hashedPwd)
-        .execute('registerEmployee')
+        // let result = await pool.request()
+        // .input("employee_id", mssql.VarChar, employee_id) 
+        // .input("name", mssql.VarChar, name)
+        // .input("email", mssql.VarChar, email)
+        // .input("phone_no", mssql.VarChar, phone_no)
+        // .input("id_no", mssql.Int, id_no)
+        // .input("KRA_PIN", mssql.VarChar, KRA_PIN)
+        // .input("NSSF_NO", mssql.VarChar, NSSF_NO)
+        // .input("NHIF_NO", mssql.VarChar, NHIF_NO) 
+        // .input("password", mssql.VarChar, hashedPwd)
+        // .execute('registerEmployee')
 
-        // console.log("here")
+        // // console.log("here")
          
-        // let result = dbhelper.execute('registerEmployee', {
-        //     employee_id, name, email, phone_no, id_no, KRA_PIN, NHIF_NO, NSSF_NO, password: hashedPwd
-        // })
-        
-        // console.log(result);
-
-        return res.status(200).json({
-            message: 'Employee registered successfully'
+        let result = await dbHelper.execute('registerEmployee', {
+            employee_id, name, email, phone_no, id_no, KRA_PIN, NHIF_NO, NSSF_NO, password: hashedPwd
         })
         
-    } catch (error) { 
+        if(result.rowsAffected[0] === 0){
+            return res.status(404).json({
+                message: "Something went wrong, employee not registered"
+            })
+        }else{
+            return res.status(200).json({
+                message: 'Employee registered successfully'
+            })
+        }
+
+        
+        
+    } catch (error) {  
         return res.json({
             error: error
         })
