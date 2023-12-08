@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 import { TestBed } from '@angular/core/testing';
+=======
+import { result } from 'cypress/types/lodash';
+import { Employee } from '../interfaces/employee';
+>>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
 import { SearchPipe } from './search.pipe';
 import { Employee } from '../interfaces/employee';
 
 describe('SearchPipe', () => {
+<<<<<<< HEAD
   let pipe: SearchPipe
   let employees: Employee[] =[]
 
@@ -13,6 +19,13 @@ describe('SearchPipe', () => {
 
     pipe = TestBed.inject(SearchPipe)
 
+=======
+
+  let employees: Employee[] = []
+  const pipe = new SearchPipe();
+
+  beforeEach(()=>{
+>>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
     employees = [
       {
         "employee_id": "0adbb3b5-dead-448f-9ca1-44f93d0e5527",
@@ -41,6 +54,7 @@ describe('SearchPipe', () => {
         "role": "employee",
         "welcomed": true,
         "isDeleted": false
+<<<<<<< HEAD
       }]
   })
 
@@ -64,4 +78,30 @@ describe('SearchPipe', () => {
 
     expect(result).toEqual(employees);
   });
+=======
+      }
+    ]
+  })
+
+
+  it('create an instance', () => {
+    expect(pipe).toBeTruthy();
+  });
+
+  it('transforms employees array based on email ', ()=>{
+
+    const filtered = pipe.transform(employees, 'cris')
+
+    expect(filtered.length).toBe(1)
+
+    expect(filtered[0].name).toBe('Cripin')
+  })
+
+  it('returns the original array when search term is empty', ()=>{
+    const filtered = pipe.transform(employees, '')
+
+    expect(filtered).toEqual(employees)
+  })
+
+>>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
 });

@@ -11,6 +11,10 @@ import { loginUserSchema, registerUserSchema } from '../validators/validators'
 import { isEmpty } from 'lodash'
 import dbHelper from '../dbhelpers/dbhelpers'
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
 // const dbhelper = new Connection 
  
 export const registerEmployee = async(req:Request, res: Response) =>{
@@ -70,11 +74,12 @@ export const registerEmployee = async(req:Request, res: Response) =>{
         // .input("password", mssql.VarChar, hashedPwd)
         // .execute('registerEmployee')
 
-        // console.log("here")
+        // // console.log("here")
          
         let result = await dbHelper.execute('registerEmployee', {
             employee_id, name, email, phone_no, id_no, KRA_PIN, NHIF_NO, NSSF_NO, password: hashedPwd
         })
+<<<<<<< HEAD
         
         // console.log(result);
         if (result.rowsAffected[0] === 0){
@@ -88,8 +93,22 @@ export const registerEmployee = async(req:Request, res: Response) =>{
         }
 
        
+=======
+>>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
         
-    } catch (error) { 
+        if(result.rowsAffected[0] === 0){
+            return res.status(404).json({
+                message: "Something went wrong, employee not registered"
+            })
+        }else{
+            return res.status(200).json({
+                message: 'Employee registered successfully'
+            })
+        }
+
+        
+        
+    } catch (error) {  
         return res.json({
             error: error
         })

@@ -23,12 +23,8 @@ export class APIService {
   }
 
   createEmployee (employee: EmployeeDetails){
-    return this.http.post('http://localhost:4400/employee/register', employee).subscribe(res=>{
-      console.log(res);
-      
-    })
+    return this.http.post('http://localhost:4400/employee/register', employee)
   }
-
 
   // GET ALL PROJECTS
   getProjects(){

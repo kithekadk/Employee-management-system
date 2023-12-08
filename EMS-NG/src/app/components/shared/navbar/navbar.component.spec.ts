@@ -22,4 +22,10 @@ describe('NavbarComponent', () => {
 
     expect(logo.textContent).toBe('EMS')
   });
+
+  it('test if logo value is EMS', ()=>{
+    let logo = fixture.nativeElement.querySelector('.logo');
+
+    expect(logo.textContent).toBe('EMS')
+  })
 });

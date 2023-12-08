@@ -6,13 +6,18 @@ describe('TDD For Teams Controller', ()=>{
 
     it('gets all teams' , async()=>{ 
 
-        let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjp0cnVlLCJpYXQiOjE3MDA0NzM1MjUsImV4cCI6MTcwMDU1OTkyNX0.mzp3XiPdQVgWU_c61VD2SFIY1AwygSiiqBI5P1gPbMk'
+        let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjp0cnVlLCJpYXQiOjE3MDEyNDIzNTIsImV4cCI6MTcwMTMyODc1Mn0.4aGT9qS9r-bT7cVHZ3A8Ouzlyw_mKU-yB99kEFs2crE'
 
         const res = await request(app).get('/teams').set('token', token).expect(200)
 
         expect(res.status).toBe(200)
+<<<<<<< HEAD
         // expect(res.body.teams).toBeInstanceOf(Array)
     })
+=======
+        expect(res.body.teams).toBeInstanceOf(Array) 
+    }) 
+>>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
 
     it('gets a single team by ID', async()=>{
         const res = await request(app).get('/teams/41177255-ccd1-4020-b301-8209ff3650a3')
