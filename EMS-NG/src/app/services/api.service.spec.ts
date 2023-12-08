@@ -1,4 +1,3 @@
-import 'jasmine'
 import { TestBed } from '@angular/core/testing';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing'
 
@@ -48,16 +47,11 @@ describe('APIService', () => {
           welcomed: true,
           isDeleted: true
         }
-    ]
+    ] 
     }
 
     service.getEmployees().subscribe(res=>{
-      expect(res.employees).toBeDefined()
+      expect(res.employees).toBeDefined() 
     })
-
-    
-
-    // const req = httpMock.expectOne('http://localhost:4400/employee');
-    // expect(req.request.method).toBe('GET')
   });
 }); 

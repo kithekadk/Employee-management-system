@@ -1,43 +1,49 @@
 import mssql from 'mssql'
 import { sqlConfig } from '../config/sqlConfig'
 
-export default class Connection{
+export default class dbHelper{
 
-    private pool: Promise <mssql.ConnectionPool>
+    // private pool: Promise <mssql.ConnectionPool>
 
-    constructor(){
-        this.pool = this.getConnection()
-    }
+    // constructor(){
+    //     this.pool = this.getConnection()
+    // }
 
-    async getConnection():Promise<mssql.ConnectionPool>{
-        const pool = mssql.connect(sqlConfig) as Promise<mssql.ConnectionPool>;
+    
+    // async getConnection():Promise<mssql.ConnectionPool>{
+    //     const pool = mssql.connect(sqlConfig) as Promise<mssql.ConnectionPool>;
 
-        return pool
-    }
+    //     return pool
+    // }
 
-    createRequest(request: mssql.Request, data: {[c:string | number]:string | number}){
-        const keys = Object.keys(data)
+    // createRequest(request: mssql.Request, data: {[c:string | number]:string | number}){
+    //     const keys = Object.keys(data)
 
-        keys.map((keyName)=>{
-            const keyValue = data[keyName]
-            request.input(keyName, keyValue)
-        })
+    //     keys.map((keyName)=>{
+    //         const keyValue = data[keyName]
+    //         request.input(keyName, keyValue)
+    //     })
 
-        return request
-    }
+    //     return request
+    // }
 
-    async query (query: string){
-        const results = (await this.pool).request().query(query)
+    static async query (query: string){
+        let pool = mssql.connect(sqlConfig) as Promise<mssql.ConnectionPool>;
+        const results = (await pool).request().query(query)
 
         return results
     }
 
-    async execute(procedureName: string, data:{[c:string | number]: string | number} = {}){
-        let pool = await this.pool
+    static async execute(procedureName: string, data:{[c:string | number]: string | number} = {}){
+        let pool = mssql.connect(sqlConfig) as Promise<mssql.ConnectionPool>;
 
-        let request = (await pool.request()) as mssql.Request
+        let request = (await (await pool).request()) as mssql.Request
 
-        request = this.createRequest(request, data)
+        for (let key in data) {
+            request.input(key, data[key]);
+        }
+
+        // request = this.createRequest(request, data)
 
         const result = await request.execute(procedureName)
 

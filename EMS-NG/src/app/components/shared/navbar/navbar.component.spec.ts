@@ -17,5 +17,9 @@ describe('NavbarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+
+    let logo = fixture.nativeElement.querySelector('.logo')
+
+    expect(logo.textContent).toBe('EMS')
   });
 });

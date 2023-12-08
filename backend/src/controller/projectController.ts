@@ -1,9 +1,8 @@
 import { Request, Response } from "express";
 import {v4} from 'uuid'
-import Connection from "../dbhelpers/dbhelpers";
 import mssql from  'mssql'
 import { sqlConfig } from "../config/sqlConfig";
-const dbhelper = new Connection
+import dbHelper from "../dbhelpers/dbhelpers"
 
 export const createProject = async(req: Request, res: Response)=>{
     try {
@@ -11,7 +10,7 @@ export const createProject = async(req: Request, res: Response)=>{
 
         const {project_name, project_description, project_deadline, assigned_to} = req.body
 
-        dbhelper.execute('createProject',{
+        await dbHelper.execute('createProject',{
             project_id:id, project_name, project_description, project_deadline, assigned_to
         })
 
