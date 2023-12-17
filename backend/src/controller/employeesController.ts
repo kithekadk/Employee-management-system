@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import mssql from 'mssql'
+import mssql from 'mssql' 
 import {v4} from 'uuid'
 import bcrypt from 'bcrypt'
 import { sqlConfig } from '../config/sqlConfig'
@@ -11,10 +11,6 @@ import { loginUserSchema, registerUserSchema } from '../validators/validators'
 import { isEmpty } from 'lodash'
 import dbHelper from '../dbhelpers/dbhelpers'
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
 // const dbhelper = new Connection 
  
 export const registerEmployee = async(req:Request, res: Response) =>{
@@ -79,22 +75,6 @@ export const registerEmployee = async(req:Request, res: Response) =>{
         let result = await dbHelper.execute('registerEmployee', {
             employee_id, name, email, phone_no, id_no, KRA_PIN, NHIF_NO, NSSF_NO, password: hashedPwd
         })
-<<<<<<< HEAD
-        
-        // console.log(result);
-        if (result.rowsAffected[0] === 0){
-            return res.status(404).json({
-                message: "Something went wrong,The Product was not added",
-              });
-        }else{
-            return res.status(200).json({
-                message: 'Employee registered successfully'
-            })
-        }
-
-       
-=======
->>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
         
         if(result.rowsAffected[0] === 0){
             return res.status(404).json({
@@ -243,4 +223,4 @@ export const checkUserDetails = async (req:ExtendedEmployee, res:Response)=>{
         }) 
     }
     
-}
+} 
