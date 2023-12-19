@@ -11,13 +11,8 @@ describe('TDD For Teams Controller', ()=>{
         const res = await request(app).get('/teams').set('token', token).expect(200)
 
         expect(res.status).toBe(200)
-<<<<<<< HEAD
-        // expect(res.body.teams).toBeInstanceOf(Array)
-    })
-=======
         expect(res.body.teams).toBeInstanceOf(Array) 
     }) 
->>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
 
     it('gets a single team by ID', async()=>{
         const res = await request(app).get('/teams/41177255-ccd1-4020-b301-8209ff3650a3')

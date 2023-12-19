@@ -39,10 +39,6 @@ describe ("Employee Registration", ()=>{
     //     // }))
 
     //     jest.spyOn(bcrypt, 'hash').mockResolvedValueOnce("HashedPass@word123" as never)
-<<<<<<< HEAD
-       
-=======
->>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
 
     //     const mockedInput = jest.fn().mockReturnThis() //makes it chainable
 
@@ -57,12 +53,9 @@ describe ("Employee Registration", ()=>{
     //         request: jest.fn().mockReturnValue(mockedRequest)
     //     }
 
-<<<<<<< HEAD
-=======
     //     // jest.mock('mssql', ()=>({
     //     //     connect: jest.fn().mockResolvedValue(mockedPool)
     //     // }))
->>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
 
     //     jest.spyOn(mssql, 'connect').mockResolvedValue(mockedPool as never)
 
@@ -78,13 +71,7 @@ describe ("Employee Registration", ()=>{
     //     expect(mockedInput).toHaveBeenCalledWith('id_no',  mssql.Int, '367577998')
     // })
 
-<<<<<<< HEAD
-
-    // Register using dbHelper
-    it('uses dbHelpers to successfully register', async()=>{
-=======
     it('registers a user using dbhelpers' , async()=>{
->>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
         const req = {
             body: {
                 name: "Test Test", 
@@ -101,24 +88,13 @@ describe ("Employee Registration", ()=>{
         jest.spyOn(bcrypt, 'hash').mockResolvedValueOnce("HashedPass@word123" as never);
 
         ((dbHelper.execute as jest.Mock)).mockResolvedValueOnce({
-<<<<<<< HEAD
-            rowsAffected: [1]
-=======
             rowsAffected : [1]
->>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
         })
 
         await registerEmployee(req as Request, res as any)
 
-<<<<<<< HEAD
-                // Assertions
-
-        expect(res.json).toHaveBeenCalledWith({message: 'Employee registered successfully'})
-        expect(res.status).toHaveBeenCalledWith(200) 
-=======
         expect(res.json).toHaveBeenCalledWith({message: 'Employee registered successfully'})
         expect(res.status).toHaveBeenCalledWith(200)
->>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
     })
 
 })

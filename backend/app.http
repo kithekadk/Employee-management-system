@@ -2,15 +2,6 @@ POST http://localhost:4400/employee/register
 Content-Type: application/json
 
 {
-<<<<<<< HEAD
-    "name": "Daniel Kitheka",
-    "email": "daniel0039@yopmail.com",
-    "phone_no": "0750739564",
-    "id_no": 37420056,
-    "KRA_PIN": "AJF92XXd3",
-    "NHIF_NO": "NHIF9s943",
-    "NSSF_NO": "NSScN9DS",
-=======
     "name": "DaNIel Kitheka",
     "email": "dan04@yopmail.com",
     "phone_no": "7509294560",
@@ -18,7 +9,6 @@ Content-Type: application/json
     "KRA_PIN": "KRAF43792Y",
     "NHIF_NO": "NHIF93040H",
     "NSSF_NO": "NS118N34D",
->>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
     "password": "12345678"
 }
 
@@ -28,18 +18,14 @@ POST http://localhost:4400/employee/login
 Content-Type: application/json
 
 {
-    "email": "dan@yopmail.com",
+    "email": "dan04@yopmail.com",
     "password": "12345678"
 }
 
 ### fetching employees
 GET http://localhost:4400/employee
 Content-Type: application/json
-<<<<<<< HEAD
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjp0cnVlLCJpYXQiOjE3MDEyMDA2MzQsImV4cCI6MTcwMTI4NzAzNH0.z06J4AI2hHoYGTEEX0whaijiC-oCQeoPc_NC2pZxth4
-=======
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImRmZTI4ZDA3LTJhM2EtNDdmNC05MDBjLWNmMzc2ZTE5OThkYiIsIm5hbWUiOiJEYW5pZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuQHlvcG1haWwuY29tIiwicm9sZSI6ImVtcGxveWVlIiwiaXNEZWxldGVkIjp0cnVlLCJpYXQiOjE3MDEyNDI4MDAsImV4cCI6MTcwMTMyOTIwMH0.BxNd15Y1IX1AaXDg70BRQt7WI_JhWRXWySMN_PoSAaw
->>>>>>> 6cfe072809d2eac56d8aeae0043e2e5e2b22c448
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZV9pZCI6ImQ3Y2RhODkwLTMwMjEtNGE1Mi05ODQ2LTc2NjZjOTk1MzIyMSIsIm5hbWUiOiJEYU5JZWwgS2l0aGVrYSIsImVtYWlsIjoiZGFuMDRAeW9wbWFpbC5jb20iLCJyb2xlIjoiZW1wbG95ZWUiLCJpc0RlbGV0ZWQiOmZhbHNlLCJpYXQiOjE3MDI5NzI0NzAsImV4cCI6MTcwMzA1ODg3MH0.lsNlk6_3fqGaDgTz_bXjS1Koz1pSHUZTIxxuKtQ0eC0
 
 
 ### fetching one employee
